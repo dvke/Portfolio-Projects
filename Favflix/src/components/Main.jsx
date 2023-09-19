@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import requests from "../Request";
+import MainButton from "./MainButton";
 
 const Main = () => {
   const [movies, setMovies] = useState([]);
@@ -35,13 +36,14 @@ const Main = () => {
         />
         <div className="absolute w-full top-[20%] p-4 md:p-8">
           <h1 className="text-3xl md:text-5xl font-bold">{movie?.title}</h1>
-          <div className="my-4">
-            <button className="border bg-gray-300 text-black border-gray-300 py-2 px-5">
-              Play
-            </button>
-            <button className="border  text-white border-gray-300 py-2 px-5 ml-4">
-              Watch later
-            </button>
+          <div className=" flex gap-4 my-4">
+            <MainButton text="Play" color="red" px={10} textColor="white" />
+            <MainButton
+              text="Watch later"
+              color="amber"
+              textColor="white"
+              px={7}
+            />
           </div>
           <p className="text-gray-400 text-sm">
             Released : {movie?.release_date}
