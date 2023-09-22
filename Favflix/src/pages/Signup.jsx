@@ -5,16 +5,37 @@ import { useAuth } from "../context/AuthContext";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const { user, signUp } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await signUp(email, password);
-      navigate("/");
-    } catch (error) {
-      console.error(error);
+    // Validation logic
+    let valid = true;
+
+    if (!email.trim()) {
+      setEmailError("Email is required");
+      valid = false;
+    } else {
+      setEmailError("");
+    }
+
+    if (password.length < 6) {
+      setPasswordError("Password must be at least 6 characters");
+      valid = false;
+    } else {
+      setPasswordError("");
+    }
+    // submit if valid
+    if (valid) {
+      try {
+        await signUp(email, password);
+        navigate("/");
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
@@ -42,6 +63,9 @@ const Signup = () => {
                   placeholder="Email"
                   autoComplete="email"
                 />
+                {emailError && (
+                  <p className="text-red-500 text-sm">{emailError}</p>
+                )}
                 <input
                   onChange={(e) => setPassword(e.target.value)}
                   className="p-3 my-2 bg-neutral-700 rounded focus:bg-neutral-600"
@@ -49,6 +73,9 @@ const Signup = () => {
                   placeholder="Password"
                   autoComplete="current-password"
                 />
+                {emailError && (
+                  <p className="text-red-500 text-sm">{passwordError}</p>
+                )}
                 <button className="bg-red-600 py-3 my-6 rounded font-bold">
                   Sign up
                 </button>
