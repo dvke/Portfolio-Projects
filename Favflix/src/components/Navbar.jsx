@@ -44,7 +44,7 @@ const Navbar = () => {
     <nav className={navbarClass}>
       <Link to="/">
         <h1 className="text-red-600 text-[2rem] font-bold cursor-pointer">
-          FAV<span className="text-[1.5rem]">❤️</span>FLIX
+          FAV<span className="text-[1.5rem] ">❤️</span>FLIX
         </h1>
       </Link>
 

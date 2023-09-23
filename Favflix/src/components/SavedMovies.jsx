@@ -1,4 +1,4 @@
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { MdChevronLeft, MdChevronRight, MdLocalMovies } from "react-icons/md";
 import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../context/AuthContext";
 import { db } from "../firebase";
@@ -42,7 +42,9 @@ const SavedMovies = () => {
 
   return (
     <>
-      <h2 className="text-white font-bold md:text-xl p-4">Watchlist</h2>
+      <h2 className="text-gray-400 font-bold md:text-xl p-4">
+        Watchlist <MdLocalMovies size={30} className="inline-block" />
+      </h2>
       <div className="relative flex items-center group">
         <MdChevronLeft
           onClick={slideLeft}
