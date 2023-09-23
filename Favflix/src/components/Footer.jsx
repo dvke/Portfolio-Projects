@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <>
       <footer className="text-white py-10 text-center mt-auto">
-        FavFlix created by Uche Obiekwe
+        FavFlix created by Uche Obiekwe 🤓
       </footer>
     </>
   );
