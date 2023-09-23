@@ -54,7 +54,7 @@ const Signup = () => {
               <h1 className="text-3xl font-bold">Sign up</h1>
               <form
                 onSubmit={handleSubmit}
-                className="w-full flex flex-col py-3"
+                className="w-full flex flex-col py-3 "
               >
                 <input
                   onChange={(e) => setEmail(e.target.value)}
