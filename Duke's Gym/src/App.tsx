@@ -1,7 +1,12 @@
+import Navbar from "@/scenes/navbar";
+import { useState } from "react";
+
 function App() {
+  const [selectedPage, setSelectedPage] = useState("home");
+
   return (
-    <div className="app flex items-center text-4xl justify-center h-[100vh]">
-      <h1>Hello</h1>
+    <div className="app bg-gray-20">
+      <Navbar />
     </div>
   );
 }
