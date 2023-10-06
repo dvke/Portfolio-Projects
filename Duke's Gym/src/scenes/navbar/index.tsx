@@ -3,6 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from "@/assets/Logo.png";
 import { Link, animateScroll as scroll } from "react-scroll";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import ActionButton from "@/shared/ActionButton";
 
 type Props = {};
 
@@ -10,12 +11,12 @@ const Navbar = (props: Props) => {
   const active = "text-primary-500";
   const flexBetween = "flex items-center justify-between";
   const [menuToggled, setMenuToggled] = useState<boolean>(false);
-  const isDesktop = useMediaQuery("(min-width: 960px)");
+  const isDesktop = useMediaQuery("(min-width: 1000px)");
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const menuItems = (
     <>
       <Link
-        className="cursor-pointer duration-300 hover:text-primary-300"
+        className=" cursor-pointer duration-300 hover:text-primary-300"
         activeClass={active}
         to="home"
         spy={true}
@@ -26,7 +27,7 @@ const Navbar = (props: Props) => {
         Home
       </Link>
       <Link
-        className="cursor-pointer duration-300 hover:text-primary-300"
+        className=" cursor-pointer duration-300 hover:text-primary-300"
         activeClass={active}
         to="benefits"
         spy={true}
@@ -37,7 +38,7 @@ const Navbar = (props: Props) => {
         Benefits
       </Link>
       <Link
-        className="cursor-pointer duration-300 hover:text-primary-300"
+        className=" cursor-pointer duration-300 hover:text-primary-300"
         activeClass={active}
         to="ourclasses"
         spy={true}
@@ -48,7 +49,7 @@ const Navbar = (props: Props) => {
         Our Classes
       </Link>
       <Link
-        className="cursor-pointer duration-300 hover:text-primary-300"
+        className=" cursor-pointer duration-300 hover:text-primary-300"
         activeClass={active}
         to="contactus"
         spy={true}
@@ -72,7 +73,7 @@ const Navbar = (props: Props) => {
     // Function to handle scroll event
     const handleScroll = () => {
       // Check if the user has scrolled down a bit (e.g., 100 pixels)
-      if (window.scrollY > 100) {
+      if (window.scrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -89,8 +90,12 @@ const Navbar = (props: Props) => {
   }, []);
 
   return (
-    <nav className={` ${isScrolled ? "bg-primary-100 drop-shadow" : ""}`}>
-      <div className={`${flexBetween} fixed top-0 z-30 w-full py-6`}>
+    <nav className={` `}>
+      <div
+        className={`${flexBetween} fixed top-0 z-30 w-full py-6 ${
+          isScrolled ? "bg-primary-100 drop-shadow" : ""
+        }`}
+      >
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* left side */}
@@ -103,19 +108,7 @@ const Navbar = (props: Props) => {
                 </div>
                 <div className={`${flexBetween} gap-8`}>
                   <p>Sign In</p>
-                  <button className="bg-secondary-500 px-5 py-2 group rounded-[10px] hover:bg-primary-500 duration-300">
-                    <Link
-                      className="group-hover:text-white"
-                      activeClass={active}
-                      to="home"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                    >
-                      Become a Member
-                    </Link>
-                  </button>
+                  <ActionButton text="Become a Member" />
                 </div>
               </div>
             ) : (
