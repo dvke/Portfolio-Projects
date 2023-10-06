@@ -2,6 +2,7 @@ import classes from "@/data/classes";
 import Header from "@/shared/Header";
 import { ClassType } from "@/shared/types";
 import { motion } from "framer-motion";
+import Class from "./Class";
 
 type Props = {};
 
@@ -30,8 +31,15 @@ const OurClasses = (props: Props) => {
         </div>
       </motion.div>
       <div className="mt-10 h-[350px] overflow-x-auto overflow-y-hidden">
-        <ul className="w-[28000px] whitespace-nowrap">
-          {classes.map((item: ClassType) => {})}
+        <ul className=" whitespace-nowrap">
+          {classes.map((item: ClassType, index) => (
+            <Class
+              key={index}
+              name={item.name}
+              description={item.description}
+              image={item.image}
+            />
+          ))}
         </ul>
       </div>
     </section>
