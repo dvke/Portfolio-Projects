@@ -90,9 +90,9 @@ const Navbar = (props: Props) => {
   }, []);
 
   return (
-    <nav className={` `}>
+    <nav className="">
       <div
-        className={`${flexBetween} fixed top-0 z-30 w-full py-6 ${
+        className={`${flexBetween} fixed top-0 z-[10] w-full py-6 ${
           isScrolled ? "bg-primary-100 drop-shadow" : ""
         }`}
       >
