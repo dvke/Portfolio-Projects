@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 type Props = {};
 
 const ContactUs = (props: Props) => {
-  const inputStyles = `w-full mt-5 bg-primary-300 rounded-lg px-5 py-3 placeholder-white`;
+  const inputStyles = `w-full mb-5 bg-primary-300 rounded-lg px-5 py-3 placeholder-white`;
   const {
     register,
     trigger,
@@ -120,7 +120,7 @@ const ContactUs = (props: Props) => {
                 </p>
               )}
               {/* submit */}
-              <button className="mt-5 group flex items-center gap-3 rounded-lg bg-secondary-500 px-[50px] py-3 transition duration-500">
+              <button className="mb-10 mt-5 group flex items-center gap-3 rounded-lg bg-secondary-500 px-[50px] py-3 transition duration-500">
                 Submit
                 <PaperAirplaneIcon className="w-5 h-5 group-hover:translate-x-3 duration-300" />
               </button>
@@ -137,8 +137,12 @@ const ContactUs = (props: Props) => {
               visible: { opacity: 1, y: 0 },
             }}
           >
-            <div className="md:before:content-evolvetext w-full absolute before:-bottom-20 before:-right-10 before:z-[-1]">
-              <img src={ContactUsPageGraphic} alt="contatcus-graphic" />
+            <div className=" md:before:content-evolvetext w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-10]">
+              <img
+                className=" w-full"
+                src={ContactUsPageGraphic}
+                alt="contatcus-graphic"
+              />
             </div>
           </motion.div>
         </div>
