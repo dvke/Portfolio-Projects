@@ -8,7 +8,7 @@ import ActionButton from "@/shared/ActionButton";
 type Props = {};
 
 const Navbar = (props: Props) => {
-  const active = "text-primary-500";
+  const active = "text-secondary-500 underline decoration-4 underline-offset-8";
   const flexBetween = "flex items-center justify-between";
   const [menuToggled, setMenuToggled] = useState<boolean>(false);
   const isDesktop = useMediaQuery("(min-width: 1000px)");
@@ -16,7 +16,7 @@ const Navbar = (props: Props) => {
   const menuItems = (
     <>
       <Link
-        className=" cursor-pointer duration-300 hover:text-primary-300"
+        className=" cursor-pointer duration-300 hover:text-white"
         activeClass={active}
         to="home"
         spy={true}
@@ -27,7 +27,7 @@ const Navbar = (props: Props) => {
         Home
       </Link>
       <Link
-        className=" cursor-pointer duration-300 hover:text-primary-300"
+        className=" cursor-pointer duration-300 hover:text-white"
         activeClass={active}
         to="benefits"
         spy={true}
@@ -38,7 +38,7 @@ const Navbar = (props: Props) => {
         Benefits
       </Link>
       <Link
-        className=" cursor-pointer duration-300 hover:text-primary-300"
+        className=" cursor-pointer duration-300 hover:text-white"
         activeClass={active}
         to="ourclasses"
         spy={true}
@@ -49,7 +49,7 @@ const Navbar = (props: Props) => {
         Our Classes
       </Link>
       <Link
-        className=" cursor-pointer duration-300 hover:text-primary-300"
+        className=" cursor-pointer duration-300 hover:text-white"
         activeClass={active}
         to="contactus"
         spy={true}
@@ -92,14 +92,16 @@ const Navbar = (props: Props) => {
   return (
     <nav className="">
       <div
-        className={`${flexBetween} fixed top-0 z-[10] w-full py-6 ${
-          isScrolled ? "bg-primary-100 drop-shadow" : ""
+        className={`${flexBetween} fixed top-0 z-[15] w-full py-6 ${
+          isScrolled ? "bg-gray-20 shadow-sm shadow-white" : ""
         }`}
       >
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* left side */}
-            <img src={Logo} alt="logo" />
+            <h1 className="text-lg uppercase font-bold w-[300px] text-header-color font-montserrat">
+              Duke's Gym
+            </h1>
             {/* right side */}
             {isDesktop ? (
               <div className={`${flexBetween} w-full`}>
@@ -113,10 +115,10 @@ const Navbar = (props: Props) => {
               </div>
             ) : (
               <button
-                className="rounded-full bg-secondary-500 p-2"
+                className="rounded-full bg-secondary-500 p-2 group hover:bg-[#7F00FF]"
                 onClick={openMenu}
               >
-                <Bars3Icon className="h-6 w-6 text-white" />
+                <Bars3Icon className="h-6 w-6 text-black group-hover:text-white" />
               </button>
             )}
           </div>

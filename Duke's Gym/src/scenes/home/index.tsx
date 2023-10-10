@@ -1,10 +1,10 @@
 import useMediaQuery from "@/hooks/useMediaQuery";
-import HomePageText from "@/assets/HomePageText.png";
 import HomePageGraphic from "@/assets/HomePageGraphic.png";
 import SponsorRedBull from "@/assets/SponsorRedBull.png";
 import SponsorForbes from "@/assets/SponsorForbes.png";
 import SponsorFortune from "@/assets/SponsorFortune.png";
 import ActionButton from "@/shared/ActionButton";
+import SquatGraphic from "@/assets/SquatGraphic.jpg";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 
@@ -34,7 +34,10 @@ const Home = (props: Props) => {
           >
             <div className="relative">
               <div className="before:absolute before:-top-20 md:before:content-evolvetext before:-left-20 before:z-[-1]">
-                <img src={HomePageText} alt="home-text" />
+                {/* <img src={HomePageText} alt="home-text" /> */}
+                <h1 className="text-header-color text-5xl font-montserrat">
+                  Duke's Gym
+                </h1>
               </div>
             </div>
             <p className="mt-8">
@@ -69,6 +72,7 @@ const Home = (props: Props) => {
         {/* image */}
         <div className="md:z-10 flex basis-3/5 justify-center md:ml-40 md:mt-16 md:justify-items-end">
           <img src={HomePageGraphic} alt="home-graphic" />
+          {/* <img src="https://www.transparentpng.com/thumb/fitness/eIf2Ob-fitness-free-cut-out.png" alt="Fitness Free Cut Out @transparentpng.com"></img> */}
         </div>
       </div>
       {/* sponsors */}

@@ -9,12 +9,16 @@ function App() {
   // const [selectedPage, setSelectedPage] = useState("home");
 
   return (
-    <div className="app bg-gray-20">
+    <div className="app ">
       <Navbar />
       <Home />
-      <Benefits />
+      <div className="bg-black">
+        <Benefits />
+      </div>
       <OurClasses />
-      <ContactUs />
+      <div className="bg-black">
+        <ContactUs />
+      </div>
       <Footer />
     </div>
   );

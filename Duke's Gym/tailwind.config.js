@@ -4,15 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "gray-20": "#F8F4EB",
+        "header-color": "white",
+        "gray-20": "#1c1b1e",
         "gray-50": "#EFE6E6",
         "gray-100": "#DFCCCC",
-        "gray-500": "#5E0000",
-        "primary-100": "#FFE1E0",
+        "gray-500": "#b6b6ad",
+        "primary-100": "#25242a",
         "primary-300": "#FFA6A3",
-        "primary-500": "#FF6B66",
+        "primary-500": "white",
         "secondary-400": "#FFCD5B",
-        "secondary-500": "#FFC132",
+        "secondary-500": "#f75d5d",
       },
       backgroundImage: (theme) => ({
         "gradient-yellowred":
@@ -24,7 +25,7 @@ module.exports = {
         montserrat: ["Montserrat", "sans-serif"],
       },
       content: {
-        evolvetext: "url('./assets/EvolveText.png')",
+        // evolvetext: "url('./assets/EvolveText.png')",
         abstractwaves: "url('./assets/AbstractWaves.png')",
         sparkles: "url('./assets/Sparkles.png')",
         circles: "url('./assets/Circles.png')",

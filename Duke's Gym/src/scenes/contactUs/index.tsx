@@ -1,4 +1,3 @@
-import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png";
 import Header from "@/shared/Header";
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
@@ -7,7 +6,7 @@ import { useForm } from "react-hook-form";
 type Props = {};
 
 const ContactUs = (props: Props) => {
-  const inputStyles = `w-full mb-5 bg-primary-300 rounded-lg px-5 py-3 placeholder-white`;
+  const inputStyles = `w-full mb-5 bg-primary-100 rounded-lg px-5 py-3 placeholder-white`;
   const {
     register,
     trigger,
@@ -22,7 +21,7 @@ const ContactUs = (props: Props) => {
   };
 
   return (
-    <section className="mx-auto w-5/6 pt-24 pb-22" id="contactus">
+    <section className="mx-auto w-5/6 pt-24 pb-16 pb-22" id="contactus">
       <motion.div>
         {/* header */}
         <motion.div
@@ -103,7 +102,7 @@ const ContactUs = (props: Props) => {
               <textarea
                 rows={4}
                 cols={50}
-                className="mt-5 block rounded-lg p-2.5 w-full text-sm text-gray-900 placeholder-white bg-primary-300 focus: "
+                className="mt-5 block rounded-lg p-2.5 w-full text-sm text-gray-900 placeholder-white bg-primary-100 focus: "
                 placeholder="Write your message here..."
                 {...register("message", {
                   required: true,
@@ -120,7 +119,7 @@ const ContactUs = (props: Props) => {
                 </p>
               )}
               {/* submit */}
-              <button className="mb-10 mt-5 group flex items-center gap-3 rounded-lg bg-secondary-500 px-[50px] py-3 transition duration-500">
+              <button className="text-black mb-10 mt-5 group flex items-center gap-3  bg-secondary-500 px-[50px] py-3 transition duration-500">
                 Submit
                 <PaperAirplaneIcon className="w-5 h-5 group-hover:translate-x-3 duration-300" />
               </button>
@@ -137,13 +136,7 @@ const ContactUs = (props: Props) => {
               visible: { opacity: 1, y: 0 },
             }}
           >
-            <div className=" md:before:content-evolvetext w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-10]">
-              <img
-                className=" w-full"
-                src={ContactUsPageGraphic}
-                alt="contatcus-graphic"
-              />
-            </div>
+            <div className=" md:before:content-evolvetext w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-10]"></div>
           </motion.div>
         </div>
       </motion.div>
