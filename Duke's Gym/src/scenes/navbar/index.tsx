@@ -109,7 +109,7 @@ const Navbar = (props: Props) => {
                   {menuItems}
                 </div>
                 <div className={`${flexBetween} gap-8`}>
-                  <p>Sign In</p>
+                  <p className="cursor-pointer hover:text-white">Sign In</p>
                   <ActionButton text="Become a Member" />
                 </div>
               </div>

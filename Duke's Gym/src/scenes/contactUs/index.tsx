@@ -119,7 +119,7 @@ const ContactUs = (props: Props) => {
                 </p>
               )}
               {/* submit */}
-              <button className="text-black mb-10 mt-5 group flex items-center gap-3  bg-secondary-500 px-[50px] py-3 transition duration-500">
+              <button className="text-black mb-10 mt-5 group rounded-[10px] flex items-center gap-3  bg-secondary-500 px-[50px] py-3 transition duration-500">
                 Submit
                 <PaperAirplaneIcon className="w-5 h-5 group-hover:translate-x-3 duration-300" />
               </button>

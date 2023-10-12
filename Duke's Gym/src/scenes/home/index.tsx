@@ -41,7 +41,9 @@ const Home = (props: Props) => {
               </div>
             </div>
             <p className="mt-8">
-              Best Gym for anabolic growth. Get free Tren on early subscription.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam
+              doloremque deserunt ipsam suscipit! Magni tempora nesciunt
+              inventore dolorem corporis cum.
             </p>
           </motion.div>
           {/* actions */}
@@ -58,7 +60,7 @@ const Home = (props: Props) => {
           >
             <ActionButton text="Join Now" />
             <Link
-              className="cursor-pointer text-sm underline text-primary-500"
+              className="cursor-pointer text-sm underline hover:text-primary-300 hover:no-underline text-primary-500"
               to="contactus"
               spy={true}
               smooth={true}

@@ -4,7 +4,7 @@ import { BenefitType } from "@/shared/types";
 import { motion } from "framer-motion";
 import Benefit from "./Benefit";
 import ActionButton from "@/shared/ActionButton";
-import PullUpGraphic from "@/assets/PullUpGraphic.jpg";
+import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
 
 const container = {
   hidden: {},
@@ -59,8 +59,8 @@ const Benefits = (props: Props) => {
         <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex">
           {/* graphic */}
           <img
-            className="mx-auto h-[900px] md:w-[50%]"
-            src={PullUpGraphic}
+            className="mx-auto md:w-[50%]"
+            src={BenefitsPageGraphic}
             alt="benefits-graphic"
           />
           {/* description */}
