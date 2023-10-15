@@ -8,8 +8,8 @@ export default {
         darkgray: "#efefef",
         darkestgray: "#1c2127",
         rating: "#9fe4a7",
-        primary: "#f2cb1f",
-        secondary: "#da5454",
+        primary: "#e2e8f0",
+        secondary: "#482861",
       },
       fontFamily: {
         dmsans: ["DM Sans", "sans-serif"],
