@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex text-sm bg-primary px-10 justify-between md:justify-around items-center">
+    <nav className="flex bg-white font-bold text-sm px-10 justify-between md:justify-around items-center">
       {/* Hamburger Menu Button */}
       <div className="text-2xl cursor-pointer md:hidden" onClick={toggleMenu}>
         &#9776;
@@ -29,7 +29,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className=" text-xl md:hidden fixed top-0 left-0 h-full w-full bg-black/50 z-10">
+        <div className="text-xl fixed top-0 left-0 h-full w-full bg-black/50 z-10">
           <div className=" flex flex-col gap-10 items-center h-full px-10 py-7 w-1/3 bg-primary absolute left-0 top-0">
             <div
               className="text-white cursor-pointer mb-5"
@@ -55,7 +55,7 @@ const Navbar = () => {
         </div>
       )}
       {/* Desktop Menu */}
-      <div className=" tracking-tight hidden md:flex gap-10 justify-between uppercase">
+      <div className="tracking-tight hidden md:flex gap-10 justify-between uppercase">
         <p className="px-5 py-3 hover:bg-slate-400 rounded-lg hover:text-white duration-200">
           Home
         </p>

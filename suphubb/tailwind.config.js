@@ -15,6 +15,9 @@ export default {
         dmsans: ["DM Sans", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
       },
+      backgroundImage: {
+        "lifting-six": "url('./assets/Lifting6.avif')",
+      },
     },
     screens: {
       xs: "480px",
