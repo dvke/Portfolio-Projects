@@ -6,11 +6,14 @@ export default function ErrorPage() {
   console.error(error);
 
   return (
-    <div id="error-page">
-      <h1>Oops!</h1>
+    <div
+      className="flex flex-col gap-7 items-center justify-center h-[100vh]"
+      id="error-page"
+    >
+      <h1 className="text-red-600 text-[3rem] font-bold">Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>
-        <i>
+        <i className="text-slate-500">
           {// @ts-ignore
           error.statusText || error.message}
         </i>
