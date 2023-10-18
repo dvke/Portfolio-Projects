@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoIosArrowDown, IoIosSearch, IoMdHeartEmpty } from "react-icons/io";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCartOutline } from "react-icons/io5";
 import { BiUser } from "react-icons/bi";
+import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <nav>
       {/* above nav */}
@@ -25,7 +28,40 @@ const Navbar = () => {
         </div>
       </div>
       {/* main nav */}
-      <div className="grid grid-cols-3 w-full items-center  px-20 py-3 border">
+      <div className="grid grid-cols-3 w-full items-center px-10 md:px-20 py-3 border">
+        {/* hamburger icon */}
+        <div className="md:hidden block">
+          <i
+            className="cursor-pointer text-[2rem]"
+            onClick={() => setIsMenuOpen(true)}
+          >
+            <RxHamburgerMenu />
+          </i>
+        </div>
+        {/* mobile links */}
+        <div
+          className={`${
+            isMenuOpen ? "" : "left-[-500px]"
+          } absolute left-0 bottom-0 h-[100vh] duration-300 z-10 w-[30vw] bg-[#dddddd]`}
+        >
+          <div className=" relative h-[70%] gap-10 flex flex-col items-center justify-center">
+            <i
+              className="cursor-pointer text-xl absolute top-[55px]"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <AiOutlineClose />
+            </i>
+            <Link to="/products/1" className="nav uppercase ">
+              MEN
+            </Link>
+            <Link to="/products/2" className="nav uppercase">
+              WOMEN
+            </Link>
+            <Link to="/" className="nav uppercase">
+              ACCESSORIES
+            </Link>
+          </div>
+        </div>
         {/* logo */}
         <div>
           <a href="/" className="font-[700] text-[1.75rem] tracking-widest">
@@ -37,8 +73,9 @@ const Navbar = () => {
             /> */}
           </a>
         </div>
-        {/* links */}
-        <div className="flex justify-self-center gap-10">
+        {/* desktop links */}
+
+        <div className="md:flex justify-self-center gap-10 hidden">
           <Link to="/products/1" className="nav uppercase ">
             MEN
           </Link>
