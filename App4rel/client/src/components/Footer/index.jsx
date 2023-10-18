@@ -28,11 +28,11 @@ const Footer = () => {
         </div>
       </div>
       {/* middle */}
-      <div className="flex justify-around px-10 py-10 bg-[#f8f8f8] text-gray-500">
+      <div className="sm:flex-row  flex items-center flex-col gap-4 justify-around px-10 py-10 bg-[#f8f8f8] text-gray-500">
         {/* categories */}
         <div>
-          <h3 className="font-bold uppercase">Categories</h3>
-          <ul className="text-sm flex flex-col gap-3">
+          <h3 className="text-center font-bold uppercase">Categories</h3>
+          <ul className="text-sm flex  sm:flex-col gap-3">
             <li className="hover:text-blue-400">Women</li>
             <li className="hover:text-blue-400">Men</li>
             <li className="hover:text-blue-400">Accessories</li>
@@ -41,8 +41,8 @@ const Footer = () => {
         </div>
         {/* links */}
         <div>
-          <h3 className="font-bold uppercase">Links</h3>
-          <ul className="text-sm flex flex-col gap-3">
+          <h3 className="text-center font-bold uppercase">Links</h3>
+          <ul className="text-sm flex sm:flex-col gap-3">
             <li className="hover:text-blue-400">FAQ</li>
             <li className="hover:text-blue-400">Pages</li>
             <li className="hover:text-blue-400">Stores</li>
@@ -50,8 +50,8 @@ const Footer = () => {
           </ul>
         </div>
         {/* about */}
-        <div className="w-1/4">
-          <h3 className="font-bold uppercase">About</h3>
+        <div className="sm:w-1/4 w-1/2">
+          <h3 className="text-center font-bold uppercase">About</h3>
           <p className="text-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
             repudiandae voluptate dolore voluptatem repellat optio?
@@ -59,7 +59,7 @@ const Footer = () => {
         </div>
         {/* contact */}
         <div>
-          <h3 className="font-bold uppercase">Contact</h3>
+          <h3 className="text-center font-bold uppercase">Contact</h3>
           <p className="text-sm">080 1234 56789</p>
         </div>
       </div>
