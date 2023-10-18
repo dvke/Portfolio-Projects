@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,500;6..12,700&display=swap");
 @tailwind base;
 @tailwind components;
@@ -5,4 +6,16 @@
 
 body {
   font-family: "Nunito Sans", sans-serif;
+}
+
+.nav {
+  @apply relative;
+}
+
+.nav::after {
+  @apply content-[''] bg-black h-[2px] w-[0%] left-0 -bottom-[21px] rounded-xl duration-300 ease-in-out absolute;
+}
+
+.nav:hover::after {
+  @apply w-[100%];
 }
