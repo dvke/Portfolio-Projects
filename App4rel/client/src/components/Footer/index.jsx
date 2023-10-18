@@ -7,9 +7,9 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="absolute bottom-0">
+    <footer className="static w-full bottom-0">
       {/* top */}
-      <div className="border w-[100vw] py-3 flex items-center g justify-center">
+      <div className="border w-[100%] py-3 flex items-center g justify-center">
         {/* social */}
         <div className="border-r-2 pr-10 flex gap-5 text-[1.45rem]">
           <i className="cursor-pointer hover:text-[#3c5a99]">
