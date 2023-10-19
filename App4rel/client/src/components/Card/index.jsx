@@ -22,7 +22,7 @@ const Card = ({ item }) => {
             </span>
           )}
           <img
-            className="w-full h-full object-cover absolute hover:scale-150 duration-300"
+            className="w-full h-full object-cover absolute hover:scale-150 duration-300 ease-in-out"
             src={item.img}
             alt="main-img"
           />

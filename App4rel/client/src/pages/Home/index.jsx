@@ -1,5 +1,6 @@
 import FeaturedProducts from "../../components/FeaturedProducts";
 import Slider from "../../components/Slider";
+import Categories from "../../components/Categories";
 import React from "react";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <Slider />
       <FeaturedProducts type="featured" />
+      <Categories />
       {/* <FeaturedProducts type="trending" /> */}
     </div>
   );
