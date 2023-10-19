@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules";
 import {
   MdOutlineArrowBackIosNew,
   MdOutlineArrowForwardIos,
@@ -25,7 +25,12 @@ const Slider = () => {
     <>
       <Swiper
         className="relative group"
-        modules={[Navigation, Pagination]}
+        modules={[Autoplay, Navigation, Pagination]}
+        loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         spaceBetween={50}
         slidesPerView={1}
         navigation={{
