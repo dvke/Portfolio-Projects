@@ -47,15 +47,48 @@ const FeaturedProducts = ({ type }) => {
       oldPrice: 40,
       newPrice: 25,
     },
+    {
+      id: 4,
+      img:
+        "https://img.freepik.com/free-photo/young-woman-wearing-orange-dress-with-turban-ethnic-jewelry_273443-4387.jpg?w=360&t=st=1697718087~exp=1697718687~hmac=6ba4ba4e85a1aff88786106b2a47cdfcbf1fad578b3f136918bcff247e910a35",
+      img2:
+        "https://img.freepik.com/free-photo/young-woman-wearing-orange-dress-with-turban-ethnic-jewelry_273443-4390.jpg?w=360&t=st=1697718031~exp=1697718631~hmac=c3ba10abb57330eb784b9c8a71a0ca32617e335bbda0c879492854ea90c9ee64",
+      title: "Orange Dress",
+      isNew: false,
+      oldPrice: 40,
+      newPrice: 25,
+    },
+    {
+      id: 4,
+      img:
+        "https://img.freepik.com/free-photo/young-woman-wearing-orange-dress-with-turban-ethnic-jewelry_273443-4387.jpg?w=360&t=st=1697718087~exp=1697718687~hmac=6ba4ba4e85a1aff88786106b2a47cdfcbf1fad578b3f136918bcff247e910a35",
+      img2:
+        "https://img.freepik.com/free-photo/young-woman-wearing-orange-dress-with-turban-ethnic-jewelry_273443-4390.jpg?w=360&t=st=1697718031~exp=1697718631~hmac=c3ba10abb57330eb784b9c8a71a0ca32617e335bbda0c879492854ea90c9ee64",
+      title: "Orange Dress",
+      isNew: false,
+      oldPrice: 40,
+      newPrice: 25,
+    },
+    {
+      id: 4,
+      img:
+        "https://img.freepik.com/free-photo/young-woman-wearing-orange-dress-with-turban-ethnic-jewelry_273443-4387.jpg?w=360&t=st=1697718087~exp=1697718687~hmac=6ba4ba4e85a1aff88786106b2a47cdfcbf1fad578b3f136918bcff247e910a35",
+      img2:
+        "https://img.freepik.com/free-photo/young-woman-wearing-orange-dress-with-turban-ethnic-jewelry_273443-4390.jpg?w=360&t=st=1697718031~exp=1697718631~hmac=c3ba10abb57330eb784b9c8a71a0ca32617e335bbda0c879492854ea90c9ee64",
+      title: "Orange Dress",
+      isNew: false,
+      oldPrice: 40,
+      newPrice: 25,
+    },
   ];
   return (
-    <section className="my-20">
+    <section className="my-20 px-10">
       {/* header */}
       <div className="uppercase font-bold text-2xl px-10 mb-10">
         {type} products
       </div>
       {/* Cards */}
-      <div className="flex items-center justify-center gap-5">
+      <div className="flex overflow-x-hidden scroll-m-0 hover:overflow-x-scroll items-center  gap-5">
         {data.map((item) => (
           <Card item={item} key={item.id} />
         ))}

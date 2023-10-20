@@ -4,7 +4,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 const Card = ({ item }) => {
   return (
-    <Link className="w-[300px] flex flex-col" to={`/product/${item.id}`}>
+    <Link className="md:min-w-[350px] min-w-[400px]" to={`/product/${item.id}`}>
       {/* card */}
       <div className="relative">
         {/* heart icon */}
@@ -28,13 +28,13 @@ const Card = ({ item }) => {
           />
           {/* <div className={`absolute z-30 w-full h-full bg-[url($)]`}></div> */}
           <img
-            className="w-full h-full object-cover"
+            className="w-full hover:scale-150 duration-300 ease-in-out h-full object-cover absolute md:hidden"
             src={item.img2}
             alt="2nd-img"
           />
         </div>
         {/* title */}
-        <h2>{item.title}</h2>
+        <h2 className="mt-5">{item.title}</h2>
         {/* price */}
         <div className="flex items-center gap-5">
           <h3>${item.newPrice}</h3>
