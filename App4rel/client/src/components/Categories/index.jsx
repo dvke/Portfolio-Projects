@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Categories = () => {
   return (
     <section className="mx-5">
-      <div className="overflow-hidden  grid grid-rows-2 grid-cols-4 gap-1 w-full max-h-[600px] border">
+      <div className=" flex flex-col md:overflow-hidden  md:grid md:grid-rows-2 grid-cols-4 gap-1 w-full md:max-h-[600px] border">
         {/* sale */}
         <Link
           to="/products/1"
@@ -27,7 +27,7 @@ const Categories = () => {
 
           <div className="w-full h-full bg-black/30 absolute duration-150"></div>
           <img
-            className="object-cover w-full h-full"
+            className="object-cover w-full md:h-full h-[300px] "
             src="https://img.freepik.com/free-photo/confident-african-woman-with-perfect-curly-hairs-casual-orange-blouse-golden-pants-posing-beige-wall_273443-4075.jpg?w=360&t=st=1697727997~exp=1697728597~hmac=f59bf894cb973385e0c9fdecc773cf64e7e492d3aad4f87dede868f2ad977469"
             alt=""
           />
