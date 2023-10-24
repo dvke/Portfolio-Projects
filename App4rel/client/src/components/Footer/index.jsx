@@ -7,7 +7,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="static w-full bottom-0">
+    <footer className="mt-auto">
       {/* top */}
       <div className="border-t-[1px] w-[100%] py-3 flex items-center g justify-center">
         {/* social */}

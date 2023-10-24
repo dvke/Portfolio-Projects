@@ -82,13 +82,13 @@ const FeaturedProducts = ({ type }) => {
     },
   ];
   return (
-    <section className="my-20 px-10">
+    <section className="my-20 px-4 ">
       {/* header */}
       <div className="uppercase font-bold text-2xl px-10 mb-10">
         {type} products
       </div>
       {/* Cards */}
-      <div className="flex overflow-x-hidden scroll-m-0 hover:overflow-x-scroll items-center  gap-5">
+      <div className="flex overflow-x-hidden scroll-smooth hover:overflow-x-scroll items-center  gap-5">
         {data.map((item) => (
           <Card item={item} key={item.id} />
         ))}

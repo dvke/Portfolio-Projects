@@ -9,7 +9,7 @@ import ErrorPage from "./pages/ErrorPage";
 
 const Layout = () => {
   return (
-    <div className="app">
+    <div className="app min-h-[100vh] flex flex-col">
       <Navbar />
       <Outlet />
       <Footer />

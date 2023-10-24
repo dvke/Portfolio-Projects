@@ -22,7 +22,7 @@ const Slider = () => {
   ];
 
   return (
-    <>
+    <section className="pt-[90px]">
       <Swiper
         className="relative group"
         modules={[Autoplay, Navigation, Pagination]}
@@ -75,7 +75,7 @@ const Slider = () => {
           <MdOutlineArrowForwardIos />
         </i>
       </Swiper>
-    </>
+    </section>
   );
 };
 

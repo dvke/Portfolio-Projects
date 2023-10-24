@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Categories = () => {
   return (
-    <section className="mx-5">
+    <section className="mx-5 mt-[200px]">
       <div className=" flex flex-col md:overflow-hidden  md:grid md:grid-rows-2 grid-cols-4 gap-1 w-full md:max-h-[600px] border">
         {/* sale */}
         <Link
