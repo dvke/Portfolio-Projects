@@ -25,10 +25,10 @@ const Products = () => {
       </div>
       <div className="md:flex">
         {/* left */}
-        <div className="w-1/3 flex md:flex-col items-center py-10 ">
-          <div className="sticky top-60">
+        <div className=" md:w-1/3 flex md:flex-col justify-start items-center py-5  md:py-10 ">
+          <div className="sticky top-[12.5rem]">
             {/* type */}
-            <div className="flex md:flex-col  gap-5 border-b-2 pb-8">
+            <div className="flex md:flex-col  gap-5 md:border-b-2 pb-8">
               <h2 className="uppercase font-bold">Product Type</h2>
               {/* inputs */}
               <div className="flex items-center">
@@ -39,7 +39,7 @@ const Products = () => {
                   value={1}
                 />
                 <label
-                  className="py-2 border w-full  peer-hover:bg-gray-200 px-2    peer-checked:bg-black peer-checked:text-white duration-100 cursor-pointer flex items-center justify-between"
+                  className="py-2 border w-full  peer-hover:bg-gray-200 px-2  peer-checked:bg-black peer-checked:text-white duration-100 cursor-pointer flex items-center justify-between"
                   htmlFor="1"
                 >
                   Shoes
@@ -84,7 +84,7 @@ const Products = () => {
               </div>
             </div>
             {/* price */}
-            <div className="flex flex-col  gap-5 border-b-2 pb-8">
+            <div className="flex md:flex-col  gap-5 md:border-b-2 pb-8">
               <h2 className="font-bold  uppercase">Filter by price</h2>
               <div className="relative">
                 <span>0</span>
@@ -100,7 +100,7 @@ const Products = () => {
               </div>
             </div>
             {/* sort */}
-            <div className="flex flex-col  gap-5 pb-8">
+            <div className="flex md:flex-col  gap-5 pb-8">
               <h2 className="font-bold  uppercase">Sort</h2>
               <div className="flex gap-2 items-center accent-black accent">
                 <input
@@ -126,15 +126,15 @@ const Products = () => {
           </div>
         </div>
         {/* right */}
-        <div className="">
-          <div className="h-1/6 w-full md:block hidden">
+        <div className="w-full md:px-20">
+          {/* <div className="h-1/6 w-full md:block hidden">
             <img
               className="h-full w-full object-cover"
               src="https://images.pexels.com/photos/1074535/pexels-photo-1074535.jpeg?auto=compress&cs=tinysrgb&w=1600"
               alt="catimg"
             />
-          </div>
-          <div className="mt-10">
+          </div> */}
+          <div className="md:mt-10 ">
             <List categoryId={categoryId} maxPrice={maxPrice} sort={sort} />
           </div>
         </div>
