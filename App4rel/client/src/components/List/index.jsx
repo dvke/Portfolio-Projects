@@ -1,7 +1,7 @@
 import Card from "../../components/Card";
 import React from "react";
 
-const List = () => {
+const List = ({ categoryId, maxPrice, sort }) => {
   const data = [
     {
       id: 1,
