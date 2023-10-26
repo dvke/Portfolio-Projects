@@ -37,8 +37,6 @@ const Slider = () => {
           nextEl: ".arrow-right",
           prevEl: ".arrow-left",
         }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
           <img
