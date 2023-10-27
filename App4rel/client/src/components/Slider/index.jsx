@@ -28,7 +28,7 @@ const Slider = () => {
         modules={[Autoplay, Navigation, Pagination]}
         loop={true}
         autoplay={{
-          delay: 2500,
+          delay: 4500,
           disableOnInteraction: false,
         }}
         spaceBetween={50}
