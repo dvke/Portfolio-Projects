@@ -4,7 +4,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 const Card = ({ item }) => {
   return (
-    <Link className="md:min-w-[250px] min-w-[400px]" to={`/product/${item.id}`}>
+    <Link className="md:min-w-[280px] min-w-[400px]" to={`/product/${item.id}`}>
       {/* card */}
       <div className="relative">
         {/* heart icon */}

@@ -5,13 +5,15 @@ import {
   MdOutlineArrowBackIosNew,
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
-
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { BsTruck } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useCallback } from "react";
 
 const Product = () => {
+  const [quantity, setQuantity] = useState(1);
   const sliderRef = useRef(null);
   const navBtnStyle =
     "absolute top-[45%] group-hover:block hidden  bg-white/50 text-white hover:text-gray-500 duration-150 cursor-pointer z-10 text-[3rem] ";
@@ -27,35 +29,35 @@ const Product = () => {
   }, []);
 
   return (
-    <div className="my-40 flex px-40">
+    <div className="my-40 flex md:flex-row flex-col gap-10 lg:px-40 px-20">
       {/* left */}
       {/* side images */}
-      <div className="flex gap-5 w-3/5">
-        <div className="relative flex flex-col gap-5">
+      <div className="flex  gap-3 ">
+        <div className="relative hidden md:flex flex-col w-[5vw] gap-5">
           <img
-            className="w-[100px] h-[100px] object-cover cursor-pointer hover:scale-105 duration-200"
+            className="w-[80px] h-[80px] object-cover cursor-pointer hover:scale-105 duration-200"
             src={images[0]}
             onClick={() => slideToImage(0)}
             alt="image1"
           />
           <img
-            className="w-[100px] h-[100px] object-cover cursor-pointer hover:scale-105 duration-200"
+            className="w-[80px] h-[80px] object-cover cursor-pointer hover:scale-105 duration-200"
             src={images[1]}
             onClick={() => slideToImage(1)}
             alt="image2"
           />
           <img
-            className="w-[100px] h-[100px] object-cover cursor-pointer hover:scale-105 duration-200"
+            className="w-[80px] h-[80px] object-cover cursor-pointer hover:scale-105 duration-200"
             src={images[2]}
             onClick={() => slideToImage(2)}
             alt="image3"
           />
         </div>
         {/* main image */}
-        <div className="">
+        <div className="md:w-[40vw] w-full h-[75vh]">
           <Swiper
             ref={sliderRef}
-            className="relative group w-[600px] h-[500px]"
+            className="relative group w-full h-full"
             spaceBetween={10}
             slidesPerView={1}
             modules={[Navigation, Pagination]}
@@ -97,7 +99,42 @@ const Product = () => {
         </div>
       </div>
       {/* right */}
-      <div></div>
+      <div className="flex gap-4 flex-col">
+        {/* product name */}
+        <div className="text-3xl font-bold">Red summer dress</div>
+        {/* price */}
+        <div className="font-bold text-black/60 text-2xl">$100</div>
+        {/* color */}
+        <div className="uppercase">
+          <span className="font-bold text-sm">color: </span>red
+        </div>
+        {/* quantity */}
+        <div>
+          <button
+            className="bg-[#bcbbbb] px-3"
+            onClick={() => setQuantity((prev) => (prev === 1 ? 1 : prev - 1))}
+          >
+            -
+          </button>{" "}
+          {quantity}{" "}
+          <button
+            className="bg-[#bcbbbb] px-3"
+            onClick={() => setQuantity((prev) => prev + 1)}
+          >
+            +
+          </button>
+        </div>
+        {/* add to cart */}
+        <button className="uppercase flex items-center mb-10 justify-center bg-blue-600 hover:bg-blue-800 duration-200 active:scale-95 py-5 text-white">
+          add to cart
+          <AiOutlineShoppingCart className="ml-3 text-xl" />
+        </button>
+        {/* delivery */}
+        <div className="flex border items-center justify-center gap-5 text-black/60 p-10">
+          <BsTruck className="text-xl" />
+          <span className="text-sm">Free Delivery</span>
+        </div>
+      </div>
     </div>
   );
 };

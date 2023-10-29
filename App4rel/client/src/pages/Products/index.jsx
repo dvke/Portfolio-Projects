@@ -25,7 +25,7 @@ const Products = () => {
       </div>
       <div className="md:flex">
         {/* left */}
-        <div className=" md:w-1/3 flex md:flex-col justify-start items-center py-5  md:py-10 ">
+        <div className=" md:w-1/3 flex md:flex-col justify-center md:justify-start items-center py-5  md:py-10 ">
           <div className="sticky top-[12.5rem]">
             {/* type */}
             <div className="flex md:flex-col  gap-5 md:border-b-2 pb-8">
@@ -126,7 +126,7 @@ const Products = () => {
           </div>
         </div>
         {/* right */}
-        <div className="w-full md:px-20">
+        <div className="w-full md:px-2 flex justify-center">
           {/* <div className="h-1/6 w-full md:block hidden">
             <img
               className="h-full w-full object-cover"
