@@ -6,11 +6,13 @@ import Products from "./pages/Products";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ErrorPage from "./pages/ErrorPage";
+import Sidebar from "./components/Sidebar";
 
 const Layout = () => {
   return (
     <div className="app min-h-[100vh] flex flex-col">
       <Navbar />
+      <Sidebar />
       <Outlet />
       <Footer />
     </div>

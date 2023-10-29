@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoIosArrowDown, IoIosSearch, IoMdHeartEmpty } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCartOutline } from "react-icons/io5";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { SidebarContext } from "../../context/SidebarContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isOpen, setIsOpen } = useContext(SidebarContext);
   return (
     <>
       {/* mobile nav */}
@@ -106,7 +108,10 @@ const Navbar = () => {
                 <IoMdHeartEmpty />
               </i>
               <div className="relative">
-                <i className="cursor-pointer hover:text-black duration-200">
+                <i
+                  className="cursor-pointer hover:text-black duration-200"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
                   <IoCartOutline />
                 </i>
                 <span className="absolute -top-2 -right-1 flex items-center justify-center  rounded-full bg-blue-500 text-xs text-white w-4 h-4">
