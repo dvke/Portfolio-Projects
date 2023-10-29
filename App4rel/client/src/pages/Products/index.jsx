@@ -89,7 +89,7 @@ const Products = () => {
               <div className="relative">
                 <span>0</span>
                 <input
-                  className="range accent-black"
+                  className="range accent-blue-500"
                   type="range"
                   min={0}
                   max={1000}
