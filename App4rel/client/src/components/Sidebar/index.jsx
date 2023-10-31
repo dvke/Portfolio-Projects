@@ -7,6 +7,8 @@ import { FiTrash2 } from "react-icons/fi";
 import CartItem from "../../components/CartItem";
 // import sidebar context
 import { SidebarContext } from "../../context/SidebarContext";
+// import cart context
+import { CartContext } from "../../context/CartContext";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);

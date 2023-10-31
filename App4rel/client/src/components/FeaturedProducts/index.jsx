@@ -48,7 +48,7 @@ const FeaturedProducts = ({ type }) => {
       newPrice: 25,
     },
     {
-      id: 4,
+      id: 5,
       img:
         "https://img.freepik.com/free-photo/young-woman-wearing-orange-dress-with-turban-ethnic-jewelry_273443-4387.jpg?w=360&t=st=1697718087~exp=1697718687~hmac=6ba4ba4e85a1aff88786106b2a47cdfcbf1fad578b3f136918bcff247e910a35",
       img2:
@@ -59,7 +59,7 @@ const FeaturedProducts = ({ type }) => {
       newPrice: 25,
     },
     {
-      id: 4,
+      id: 6,
       img:
         "https://img.freepik.com/free-photo/young-woman-wearing-orange-dress-with-turban-ethnic-jewelry_273443-4387.jpg?w=360&t=st=1697718087~exp=1697718687~hmac=6ba4ba4e85a1aff88786106b2a47cdfcbf1fad578b3f136918bcff247e910a35",
       img2:
@@ -70,7 +70,7 @@ const FeaturedProducts = ({ type }) => {
       newPrice: 25,
     },
     {
-      id: 4,
+      id: 7,
       img:
         "https://img.freepik.com/free-photo/young-woman-wearing-orange-dress-with-turban-ethnic-jewelry_273443-4387.jpg?w=360&t=st=1697718087~exp=1697718687~hmac=6ba4ba4e85a1aff88786106b2a47cdfcbf1fad578b3f136918bcff247e910a35",
       img2:
@@ -89,8 +89,8 @@ const FeaturedProducts = ({ type }) => {
       </div>
       {/* Cards */}
       <div className="flex overflow-x-hidden scroll-smooth hover:overflow-x-scroll items-center  gap-5">
-        {data.map((item) => (
-          <Card item={item} key={item.id} />
+        {data.map((product) => (
+          <Card product={product} key={product.id} />
         ))}
       </div>
     </section>

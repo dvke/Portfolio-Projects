@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules";
 import {
@@ -11,9 +11,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useCallback } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useContext(CartContext);
   const sliderRef = useRef(null);
   const navBtnStyle =
     "absolute top-[45%] group-hover:block hidden  bg-white/50 text-white hover:text-gray-500 duration-150 cursor-pointer z-10 text-[3rem] ";
@@ -54,7 +56,7 @@ const Product = () => {
           />
         </div>
         {/* main image */}
-        <div className="md:w-[40vw] w-full h-[75vh]">
+        <div className="md:w-[40vw] w-full h-[500px]">
           <Swiper
             ref={sliderRef}
             className="relative group w-full h-full"
@@ -125,7 +127,10 @@ const Product = () => {
           </button>
         </div>
         {/* add to cart */}
-        <button className="uppercase flex items-center mb-10 justify-center bg-blue-600 hover:bg-blue-800 duration-200 active:scale-95 py-5 text-white">
+        <button
+          onClick={() => addToCart()}
+          className="uppercase flex items-center mb-10 justify-center bg-blue-600 hover:bg-blue-800 duration-200 active:scale-95 py-5 text-white"
+        >
           add to cart
           <AiOutlineShoppingCart className="ml-3 text-xl" />
         </button>
