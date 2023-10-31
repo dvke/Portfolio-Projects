@@ -6,10 +6,12 @@ import { BiUser } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { SidebarContext } from "../../context/SidebarContext";
+import { CartContext } from "../../context/CartContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
+  const { cart } = useContext(CartContext);
   return (
     <>
       {/* mobile nav */}
@@ -115,7 +117,7 @@ const Navbar = () => {
                   <IoCartOutline />
                 </i>
                 <span className="absolute -top-2 -right-1 flex items-center justify-center  rounded-full bg-blue-500 text-xs text-white w-4 h-4">
-                  0
+                  {cart.length}
                 </span>
               </div>
             </div>

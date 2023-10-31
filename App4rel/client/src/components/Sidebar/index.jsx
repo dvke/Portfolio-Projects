@@ -12,14 +12,17 @@ import { CartContext } from "../../context/CartContext";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
+  const { cart } = useContext(CartContext);
   return (
     <div
       className={`${
         isOpen ? "right-0" : "-right-full"
-      } w-full h-full bg-white fixed z-50 top-0 shadow-2xl md:w-[35vw] xl:max-w-[30vw] transition-all duration-300 px-4 lg:px-[3]`}
+      } w-full  h-full bg-white overflow-y-scroll fixed z-50 top-0 shadow-2xl md:w-[35vw] xl:max-w-[30vw] transition-all duration-300 px-4 lg:px-[3]`}
     >
       <div className="flex items-center justify-between py-6 border-b">
-        <div className="uppercase font-semibold">0 items in Cart</div>
+        <div className="uppercase font-semibold">
+          {cart.length} items in Cart
+        </div>
         {/* icon */}
         <div
           onClick={handleClose}
@@ -27,6 +30,12 @@ const Sidebar = () => {
         >
           <IoMdArrowForward className="text-2xl" />
         </div>
+      </div>
+      {/* car items */}
+      <div>
+        {cart.map((item) => (
+          <CartItem item={item} key={item.id} />
+        ))}
       </div>
     </div>
   );

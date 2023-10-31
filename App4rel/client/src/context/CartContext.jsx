@@ -28,8 +28,13 @@ const CartProvider = ({ children }) => {
     }
   };
 
+  // remove from cart
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  };
   return (
-    <CartContext.Provider value={{ addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
