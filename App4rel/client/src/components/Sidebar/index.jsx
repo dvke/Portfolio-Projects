@@ -9,15 +9,16 @@ import CartItem from "../../components/CartItem";
 import { SidebarContext } from "../../context/SidebarContext";
 // import cart context
 import { CartContext } from "../../context/CartContext";
+import { BiTrash } from "react-icons/bi";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  const { cart } = useContext(CartContext);
+  const { cart, total, clearCart } = useContext(CartContext);
   return (
     <div
       className={`${
         isOpen ? "right-0" : "-right-full"
-      } w-full  h-full bg-white overflow-y-scroll fixed z-50 top-0 shadow-2xl md:w-[35vw] xl:max-w-[30vw] transition-all duration-300 px-4 lg:px-[3]`}
+      }  bg-white h-full w-full fixed z-50 top-0 shadow-2xl md:w-[35vw] xl:max-w-[30vw] transition-all duration-300 px-4 lg:px-[35px]`}
     >
       <div className="flex items-center justify-between py-6 border-b">
         <div className="uppercase font-semibold">
@@ -32,11 +33,29 @@ const Sidebar = () => {
         </div>
       </div>
       {/* car items */}
-      <div>
+      <div className="flex flex-col gap-y-2 max-h-[520px] lg:h-[640px] overflow-y-auto overflow-x-hidden border-b">
         {cart.map((item) => (
           <CartItem item={item} key={item.id} />
         ))}
       </div>
+      {/* condition rendering: total price & clear cart */}
+      {cart.length > 0 && (
+        <div className="flex flex-col gap-y-3 py-4 mt-4">
+          <div className="flex w-full justify-between items-center">
+            {/* total */}
+            <div className="uppercase font-bold">
+              <span>Total: </span>$ {total}
+            </div>
+            {/* clear cart */}
+            <div
+              onClick={() => clearCart()}
+              className="cursor-pointer py-4 bg-red-500 text-white w-12 h-12  flex justify-center items-center text-xl"
+            >
+              <BiTrash />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

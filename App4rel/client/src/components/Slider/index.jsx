@@ -40,28 +40,28 @@ const Slider = () => {
       >
         <SwiperSlide>
           <img
-            className="h-[70vh] w-[100vw] object-top object-cover"
+            className="h-[70vh] w-[100vw] object-top object-cover hover:scale-110 duration-300"
             src={data[0]}
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="h-[70vh] w-[100vw] object-top object-cover"
+            className="h-[70vh] w-[100vw] object-top object-cover hover:scale-110 duration-300"
             src={data[1]}
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="h-[70vh] w-[100vw] object-top object-cover"
+            className="h-[70vh] w-[100vw] object-top object-cover hover:scale-110 duration-300"
             src={data[2]}
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            className="h-[70vh] w-[100vw] object-top object-cover"
+            className="h-[70vh] w-[100vw] object-top object-cover hover:scale-110 duration-300"
             src={data[3]}
             alt=""
           />

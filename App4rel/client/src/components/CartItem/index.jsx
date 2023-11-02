@@ -1,11 +1,14 @@
 import { CartContext } from "../../context/CartContext";
 import React, { useContext } from "react";
 import { BiTrash } from "react-icons/bi";
+import { MdCancel } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const CartItem = ({ item }) => {
   // cart context
-  const { removeFromCart } = useContext(CartContext);
+  const { removeFromCart, increaseAmount, decreaseAmount } = useContext(
+    CartContext
+  );
   // destructure item
   const { id, title, img, newPrice, amount } = item;
   return (
@@ -28,19 +31,25 @@ const CartItem = ({ item }) => {
             </Link>
             {/* trash icon */}
             <div onClick={() => removeFromCart(id)}>
-              <BiTrash className="text-gray-500 hover:text-red-500 cursor-pointer" />
+              <MdCancel className="text-gray-500 hover:text-red-500 cursor-pointer" />
             </div>
           </div>
           <div className="flex gap-x-2 h-[36px] text-sm">
             {/* quantity */}
             <div className="flex flex-1 max-w-[100px] items-center h-full border">
-              <div className="flex-1 h-full flex justify-center items-center cursor-pointer">
+              <div
+                onClick={() => decreaseAmount(id)}
+                className="flex-1 h-full flex justify-center items-center cursor-pointer bg-[#f8f8f8]"
+              >
                 -
               </div>
               <div className="h-full flex justify-center items-center px-2">
                 {amount}
               </div>
-              <div className="flex-1 h-full flex justify-center items-center cursor-pointer">
+              <div
+                onClick={() => increaseAmount(id)}
+                className="flex-1 h-full flex justify-center items-center cursor-pointer bg-[#f8f8f8]"
+              >
                 +
               </div>
             </div>

@@ -51,7 +51,7 @@ const List = ({ categoryId, maxPrice, sort }) => {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3  gap-2">
       {data.map((item) => (
-        <Card item={item} key={item.id} />
+        <Card product={item} key={item.id} />
       ))}
     </div>
   );
