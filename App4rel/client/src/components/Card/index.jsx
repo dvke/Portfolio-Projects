@@ -26,30 +26,39 @@ const Card = ({ product }) => {
         {/* image */}
         <div className="w-full h-[400px] relative overflow-hidden">
           {/* New tag */}
-          {product.isNew && (
+          {product.attributes.isNew && (
             <span className="uppercase py-1 px-2 absolute left-2 bottom-2 rounded-sm font-[900] text-center text-sm z-10 bg-white/70">
               NEW
             </span>
           )}
           <img
             className="w-full h-full object-cover absolute hover:scale-110 duration-300 ease-in-out"
-            src={product.img}
+            src={
+              // @ts-ignore
+              import.meta.env.VITE_UPLOAD_URL +
+              product.attributes.img.data.attributes.url
+            }
             alt="main-img"
           />
           {/* <div className={`absolute z-30 w-full h-full bg-[url($)]`}></div> */}
-          <img
+          {/* second image */}
+          {/* <img
             className="w-full hover:scale-150 duration-300 ease-in-out h-full object-cover absolute md:hidden"
-            src={product.img2}
+            src={
+              // @ts-ignore
+              import.meta.env.VITE_UPLOAD_URL +
+              product.attributes.img2.data.attributes.url
+            }
             alt="2nd-img"
-          />
+          /> */}
         </div>
         {/* title */}
-        <h2 className="mt-5">{product.title}</h2>
+        <h2 className="mt-5">{product.attributes.title}</h2>
         {/* price */}
         <div className="flex items-center gap-5">
-          <h3>${product.newPrice}</h3>
+          <h3>${product.attributes.price}</h3>
           <h3 className="text-gray-400 text-sm line-through">
-            ${product.oldPrice}
+            ${product.attributes.oldPrice || product.attributes.price + 20}
           </h3>
         </div>
       </Link>
