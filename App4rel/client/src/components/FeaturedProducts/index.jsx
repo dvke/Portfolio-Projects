@@ -1,30 +1,12 @@
 // @ts-nocheck
-import axios from "axios";
 import Card from "../../components/Card";
-import React, { useEffect, useState } from "react";
+import useFetch from "../../hooks/useFetch";
+import Loader from "../../components/Loader";
 
 const FeaturedProducts = ({ type }) => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}/products?populate=*`,
-          {
-            headers: {
-              Authorization: `bearer ${import.meta.env.VITE_API_TOKEN}`,
-            },
-          }
-        );
-        setData(res.data.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
-  console.log(data);
+  const { data, loading, error } = useFetch(
+    `/products?populate=*&[filters][type][$eq]=${type}`
+  );
 
   return (
     <section className="my-20 px-4 ">
@@ -34,9 +16,13 @@ const FeaturedProducts = ({ type }) => {
       </div>
       {/* Cards */}
       <div className="flex overflow-x-hidden scroll-smooth hover:overflow-x-scroll justify-center items-center  gap-5">
-        {data.map((product) => (
-          <Card product={product} key={product.id} />
-        ))}
+        {loading ? (
+          <div className="absolute w-10 m-auto">
+            <Loader />
+          </div>
+        ) : (
+          data.map((product) => <Card product={product} key={product.id} />)
+        )}
       </div>
     </section>
   );
