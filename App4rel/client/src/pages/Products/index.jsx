@@ -1,18 +1,38 @@
+import useFetch from "../../hooks/useFetch";
 import List from "../../components/List";
 import React, { useEffect, useState } from "react";
-import { FaShoePrints } from "react-icons/fa";
-import { GiSkirt, GiLabCoat } from "react-icons/gi";
 import { useParams } from "react-router-dom";
 
 const Products = () => {
   const categoryId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
   const [sort, setSort] = useState(null);
+  const [selectedSubCategories, setSelectedSubCategories] = useState([]);
+
+  const { data, loading, error } = useFetch(
+    `/sub-categories?/[filters][categories][id][$eq]=${categoryId}`
+  );
 
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  function handleChange(e) {
+    const value = e.target.value;
+    const isChecked = e.target.checked;
+
+    setSelectedSubCategories(
+      isChecked
+        ? [...selectedSubCategories, value]
+        : selectedSubCategories.filter((item) => item != value)
+    );
+  }
+
+  // console log for test
+  useEffect(() => {
+    console.log(selectedSubCategories);
+  }, [selectedSubCategories]);
 
   return (
     <div className="mt-[97px]">
@@ -31,57 +51,23 @@ const Products = () => {
             <div className="flex md:flex-col  gap-5 md:border-b-2 pb-8">
               <h2 className="uppercase font-bold">Product Type</h2>
               {/* inputs */}
-              <div className="flex items-center">
-                <input
-                  className="hidden peer"
-                  type="checkbox"
-                  id="1"
-                  value={1}
-                />
-                <label
-                  className="py-2 border w-full  peer-hover:bg-gray-200 px-2  peer-checked:bg-black peer-checked:text-white duration-100 cursor-pointer flex items-center justify-between"
-                  htmlFor="1"
-                >
-                  Shoes
-                  <i>
-                    <FaShoePrints />
-                  </i>
-                </label>
-              </div>
-              <div className="flex items-center gap-5">
-                <input
-                  className="hidden peer"
-                  type="checkbox"
-                  id="2"
-                  value={2}
-                />
-                <label
-                  className="py-2 border w-full  peer-hover:bg-gray-200 px-2    peer-checked:bg-black peer-checked:text-white duration-100 cursor-pointer flex items-center justify-between"
-                  htmlFor="2"
-                >
-                  Skirts
-                  <i>
-                    <GiSkirt />
-                  </i>
-                </label>
-              </div>
-              <div className="flex items-center gap-5">
-                <input
-                  className="hidden peer"
-                  type="checkbox"
-                  id="3"
-                  value={3}
-                />
-                <label
-                  className="py-2 border w-full  peer-hover:bg-gray-200 px-2    peer-checked:bg-black peer-checked:text-white duration-100 cursor-pointer flex items-center justify-between"
-                  htmlFor="3"
-                >
-                  Coats
-                  <i>
-                    <GiLabCoat />
-                  </i>
-                </label>
-              </div>
+              {data?.map((item) => (
+                <div className="flex items-center gap-5" key={item.id}>
+                  <input
+                    className="hidden peer"
+                    type="checkbox"
+                    id={item.id}
+                    value={item.id}
+                    onChange={handleChange}
+                  />
+                  <label
+                    className="py-2 border w-full  peer-hover:bg-gray-200 px-2    peer-checked:bg-black peer-checked:text-white duration-100 cursor-pointer flex items-center justify-between"
+                    htmlFor={item.id}
+                  >
+                    {item.attributes.title}
+                  </label>
+                </div>
+              ))}
             </div>
             {/* price */}
             <div className="flex md:flex-col  gap-5 md:border-b-2 pb-8">
@@ -135,7 +121,12 @@ const Products = () => {
             />
           </div> */}
           <div className="md:mt-10 ">
-            <List categoryId={categoryId} maxPrice={maxPrice} sort={sort} />
+            <List
+              categoryId={categoryId}
+              maxPrice={maxPrice}
+              sort={sort}
+              subCategories={selectedSubCategories}
+            />
           </div>
         </div>
       </div>

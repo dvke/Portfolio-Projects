@@ -16,12 +16,14 @@ const FeaturedProducts = ({ type }) => {
       </div>
       {/* Cards */}
       <div className="flex overflow-x-hidden scroll-smooth hover:overflow-x-scroll justify-center items-center  gap-5">
-        {loading ? (
+        {error ? (
+          "Something went wrong"
+        ) : loading ? (
           <div className="absolute w-10 m-auto">
             <Loader />
           </div>
         ) : (
-          data.map((product) => <Card product={product} key={product.id} />)
+          data?.map((product) => <Card product={product} key={product.id} />)
         )}
       </div>
     </section>

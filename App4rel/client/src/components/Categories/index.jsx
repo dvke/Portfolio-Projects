@@ -7,7 +7,7 @@ const Categories = () => {
       <div className=" flex flex-col md:overflow-hidden  md:grid md:grid-rows-2 grid-cols-4 gap-1 w-full md:max-h-[600px] border">
         {/* sale */}
         <Link
-          to="/products/1"
+          to="/products/5"
           className="flex justify-center items-center relative"
         >
           <h1 className="text-4xl text-white absolute z-10">SALE</h1>
@@ -20,7 +20,7 @@ const Categories = () => {
         </Link>
         {/* women */}
         <Link
-          to="products/2"
+          to="products/1"
           className="row-span-2 relative flex items-center justify-center"
         >
           <h1 className="text-4xl text-white absolute z-10">WOMEN</h1>
@@ -62,7 +62,7 @@ const Categories = () => {
         </Link>
         {/* men */}
         <Link
-          to="products/5"
+          to="products/2"
           className="relative flex items-center justify-center "
         >
           <h1 className="text-4xl text-white absolute z-10">MEN</h1>
