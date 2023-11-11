@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const Products = () => {
   const categoryId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
-  const [sort, setSort] = useState(null);
+  const [sort, setSort] = useState("asc");
   const [selectedSubCategories, setSelectedSubCategories] = useState([]);
 
   const { data, loading, error } = useFetch(
@@ -75,6 +75,7 @@ const Products = () => {
               <div className="relative">
                 <span>0</span>
                 <input
+                  disabled
                   className="range accent-blue-500"
                   type="range"
                   min={0}

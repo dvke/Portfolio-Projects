@@ -6,8 +6,6 @@ const SidebarProvider = ({ children }) => {
   // sidebar state
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log("changed");
-
   const handleClose = () => {
     setIsOpen(false);
   };

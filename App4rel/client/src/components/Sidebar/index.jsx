@@ -13,7 +13,8 @@ import { BiTrash } from "react-icons/bi";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  const { cart, total, clearCart } = useContext(CartContext);
+  const { cart, total, clearCart, itemAmount } = useContext(CartContext);
+
   return (
     <div
       className={`${
@@ -22,7 +23,7 @@ const Sidebar = () => {
     >
       <div className="flex items-center justify-between py-6 border-b">
         <div className="uppercase font-semibold">
-          {cart.length} items in Cart
+          {itemAmount} items in Cart
         </div>
         {/* icon */}
         <div
@@ -33,28 +34,45 @@ const Sidebar = () => {
         </div>
       </div>
       {/* car items */}
-      <div className="flex flex-col gap-y-2 max-h-[520px] lg:h-[640px] overflow-y-auto overflow-x-hidden border-b">
+      <div className="flex flex-col gap-y-2 max-h-[420px] lg:h-[640px] overflow-y-auto overflow-x-hidden">
         {cart.map((item) => (
           <CartItem item={item} key={item.id} />
         ))}
       </div>
       {/* condition rendering: total price & clear cart */}
       {cart.length > 0 && (
-        <div className="flex flex-col gap-y-3 py-4 mt-4">
-          <div className="flex w-full justify-between items-center">
-            {/* total */}
-            <div className="uppercase font-bold">
-              <span>Total: </span>$ {total}
-            </div>
-            {/* clear cart */}
-            <div
-              onClick={() => clearCart()}
-              className="cursor-pointer py-4 bg-red-500 text-white w-12 h-12  flex justify-center items-center text-xl"
-            >
-              <BiTrash />
+        <>
+          <div className="flex flex-col gap-y-3 py-4 mt-2 border-t">
+            <div className="flex w-full justify-between items-center">
+              {/* total */}
+              <div className="uppercase font-bold">
+                <span>Total: </span>$ {total}
+              </div>
+              {/* clear cart */}
+              <div
+                onClick={() => clearCart()}
+                className="cursor-pointer py-4 bg-red-500 text-white w-12 h-12  flex justify-center items-center text-xl"
+              >
+                <BiTrash />
+              </div>
             </div>
           </div>
-        </div>
+          {/* view cart & checkout */}
+          <div className="flex flex-col gap-3">
+            <Link
+              to={"/"}
+              className="w-full bg-[#dddddd] flex p-4 justify-center items-center"
+            >
+              View Cart
+            </Link>
+            <Link
+              to={"/"}
+              className="w-full bg-black text-white flex p-4 justify-center items-center"
+            >
+              Checkout
+            </Link>
+          </div>
+        </>
       )}
     </div>
   );

@@ -10,10 +10,21 @@ const CartProvider = ({ children }) => {
   // total price state
   const [total, setTotal] = useState(0);
 
+  // retrieve cart from local storage
+  useEffect(() => {
+    const storedCart = window.localStorage.getItem("Ap4r3l_cart");
+    setCart(JSON.parse(storedCart));
+  }, []);
+
+  // save cart to local storage
+  useEffect(() => {
+    window.localStorage.setItem("Ap4r3l_cart", JSON.stringify(cart));
+  }, [cart]);
+
   // update total
   useEffect(() => {
     const total = cart.reduce((accumulator, currentItem) => {
-      return accumulator + currentItem.newPrice * currentItem.amount;
+      return accumulator + currentItem.attributes.price * currentItem.amount;
     }, 0);
     setTotal(total);
   }, [cart]);
@@ -29,10 +40,10 @@ const CartProvider = ({ children }) => {
   }, [cart]);
 
   //   add to cart
-  const addToCart = (product, id) => {
+  const addToCart = (product, id, amount = product.amount) => {
     const newItem = {
       ...product,
-      amount: 1,
+      amount: amount || 1,
     };
     // check if item is already in cart
     const cartItem = cart.find((item) => {
