@@ -61,7 +61,7 @@ const Products = () => {
                     onChange={handleChange}
                   />
                   <label
-                    className="py-2 border w-full  peer-hover:bg-gray-200 px-2    peer-checked:bg-black peer-checked:text-white duration-100 cursor-pointer flex items-center justify-between"
+                    className="py-2 border w-full  peer-hover:bg-gray-200 px-2  peer-checked:bg-black peer-checked:text-white duration-100 cursor-pointer flex items-center justify-between"
                     htmlFor={item.id}
                   >
                     {item.attributes.title}

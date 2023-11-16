@@ -71,7 +71,7 @@ const Product = () => {
               />
             </div>
             {/* main image */}
-            <div className="md:w-[40vw] w-full h-[500px7]">
+            <div className="md:w-[40vw] w-full h-[500px]">
               <Swiper
                 ref={sliderRef}
                 className="relative group w-full h-full"

@@ -27,10 +27,10 @@ const Navbar = () => {
           >
             <AiOutlineClose />
           </i>
-          <Link to="/products/1" className="nav uppercase ">
+          <Link to="/products/2" className="nav uppercase ">
             MEN
           </Link>
-          <Link to="/products/2" className="nav uppercase">
+          <Link to="/products/1" className="nav uppercase">
             WOMEN
           </Link>
           <Link to="/" className="nav uppercase">
