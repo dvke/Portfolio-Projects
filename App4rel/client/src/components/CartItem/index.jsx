@@ -18,7 +18,7 @@ const CartItem = ({ item }) => {
         <div>
           <Link to={`/product/${item.id}`}>
             <img
-              className="max-w-[80px]"
+              className="w-[100px] h-[100px] object-cover"
               src={
                 // @ts-ignore
                 import.meta.env.VITE_UPLOAD_URL +

@@ -41,7 +41,7 @@ const Products = () => {
         free shipping between october 23rd and december 31st
       </div>
       <div className="uppercase py-7 px-10 sticky z-10 top-20 bg-white/90 text-center font-bold text-xl border-b-2">
-        Products Category Name
+        {categoryId === 1 ? "Women" : categoryId === 2 ? "Men" : "Products"}
       </div>
       <div className="md:flex">
         {/* left */}

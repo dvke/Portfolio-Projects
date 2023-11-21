@@ -11,31 +11,39 @@ import { CartContext } from "../../context/CartContext";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
-  const { itemAmount } = useContext(CartContext);
+  const { itemAmount, cart } = useContext(CartContext);
   return (
     <>
       {/* mobile nav */}
-      <div
-        className={`${
-          isMenuOpen ? "" : "left-[-700px]"
-        } fixed left-0 bottom-0 h-full duration-300 z-[999] w-[40vw] bg-[#dddddd]`}
-      >
-        <div className="relative h-[70%] gap-10 flex flex-col items-center justify-center">
-          <i
-            className="cursor-pointer text-xl absolute top-[55px]"
+      <div>
+        {isMenuOpen && (
+          <div
+            className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-40"
             onClick={() => setIsMenuOpen(false)}
-          >
-            <AiOutlineClose />
-          </i>
-          <Link to="/products/2" className="nav uppercase ">
-            MEN
-          </Link>
-          <Link to="/products/1" className="nav uppercase">
-            WOMEN
-          </Link>
-          <Link to="/" className="nav uppercase">
-            ACCESSORIES
-          </Link>
+          ></div>
+        )}
+        <div
+          className={`${
+            isMenuOpen ? "" : "left-[-700px]"
+          } fixed left-0 bottom-0 h-full duration-300 z-[999] w-[40vw] bg-[#dddddd]`}
+        >
+          <div className="relative h-[70%] gap-10 flex flex-col items-center justify-center">
+            <i
+              className="cursor-pointer text-xl absolute top-[55px]"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <AiOutlineClose />
+            </i>
+            <Link to="/products/2" className="nav uppercase ">
+              MEN
+            </Link>
+            <Link to="/products/1" className="nav uppercase">
+              WOMEN
+            </Link>
+            <Link to="/" className="nav uppercase">
+              ACCESSORIES
+            </Link>
+          </div>
         </div>
       </div>
       <nav className="fixed w-full z-50">
@@ -80,10 +88,10 @@ const Navbar = () => {
           </div>
           {/* desktop links */}
           <div className="md:flex justify-self-center gap-10 hidden">
-            <Link to="/products/1" className="nav uppercase ">
+            <Link to="/products/2" className="nav uppercase ">
               MEN
             </Link>
-            <Link to="/products/2" className="nav uppercase">
+            <Link to="/products/1" className="nav uppercase">
               WOMEN
             </Link>
             <Link to="/" className="nav uppercase">
@@ -117,7 +125,7 @@ const Navbar = () => {
                   <IoCartOutline />
                 </i>
                 <span className="absolute -top-2 -right-1 flex items-center justify-center  rounded-full bg-blue-500 text-xs text-white w-4 h-4">
-                  {itemAmount}
+                  {cart.length}
                 </span>
               </div>
             </div>

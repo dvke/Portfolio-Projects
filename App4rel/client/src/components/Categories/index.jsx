@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 
 const Categories = () => {
   return (
-    <section className="mx-5 mt-[200px]">
+    <section className="mx-5 mt-[100px]">
+      {/* header */}
+      <div className="uppercase font-bold text-2xl px-10 mb-10">categories</div>
       <div className=" flex flex-col md:overflow-hidden  md:grid md:grid-rows-2 grid-cols-4 gap-1 w-full md:max-h-[600px] border">
         {/* sale */}
         <Link
-          to="/products/5"
-          className="flex justify-center items-center relative"
+          to="/"
+          className="flex justify-center items-center relative filter"
         >
           <h1 className="text-4xl text-white absolute z-10">SALE</h1>
           <div className="w-full h-full bg-black/40 absolute duration-150"></div>
           <img
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full grayscale cursor-not-allowed"
             src="https://img.freepik.com/free-photo/studio-shot-pretty-black-woman-with-white-shopping-bag-standing-yellow-background-trendy-spring-fashionable-look_273443-29.jpg?size=626&ext=jpg&ga=GA1.1.1203463017.1697382872&semt=ais"
             alt="sale"
           />
@@ -33,29 +35,26 @@ const Categories = () => {
           />
         </Link>
         {/* new */}
-        <Link
-          to="products/3"
-          className="relative flex items-center justify-center "
-        >
+        <Link to="/" className="relative flex items-center justify-center">
           <h1 className="text-4xl text-white absolute z-10">NEW</h1>
 
           <div className="w-full h-full bg-black/30 absolute duration-150"></div>
           <img
-            className="object-cover w-full h-full overflow-hidden"
+            className="object-cover w-full h-full overflow-hidden grayscale cursor-not-allowed"
             src="https://img.freepik.com/free-photo/clothing-rack-with-floral-hawaiian-shirts-hangers-hat_23-2149366018.jpg?size=626&ext=jpg&ga=GA1.1.1203463017.1697382872&semt=ais"
             alt=""
           />
         </Link>
         {/* accessories */}
         <Link
-          to="products/4"
+          to="/"
           className="relative flex items-center justify-center overflow-hidden"
         >
           <h1 className="text-4xl text-white absolute z-10">ACCESSORIES</h1>
 
           <div className="w-full h-full bg-black/30 absolute duration-150"></div>
           <img
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full grayscale cursor-not-allowed"
             src="https://img.freepik.com/free-photo/spring-wardrobe-switch-still-life_23-2150176694.jpg?size=626&ext=jpg&ga=GA1.1.1203463017.1697382872&semt=sph"
             alt=""
           />
@@ -76,8 +75,8 @@ const Categories = () => {
         </Link>
         {/* shoes */}
         <Link
-          to="products/6"
-          className="relative flex items-center justify-center col-span-2"
+          to="/"
+          className="relative flex items-center justify-center col-span-2 cursor-not-allowed"
         >
           <h1 className="text-4xl text-white absolute z-10">SHOES</h1>
 
