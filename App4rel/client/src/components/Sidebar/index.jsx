@@ -10,6 +10,7 @@ import { SidebarContext } from "../../context/SidebarContext";
 // import cart context
 import { CartContext } from "../../context/CartContext";
 import { BiTrash } from "react-icons/bi";
+import { BsCartX } from "react-icons/bs";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
@@ -41,6 +42,12 @@ const Sidebar = () => {
           </div>
         </div>
         {/* car items */}
+        {total === 0 && (
+          <div className="flex flex-col gap-5 items-center justify-center h-[80%]">
+            <BsCartX className="text-8xl text-gray-200" />
+            <div className="uppercase">No items in cart</div>
+          </div>
+        )}
         <div className="flex flex-col gap-y-2 max-h-[420px] lg:h-[640px] overflow-y-auto overflow-x-hidden">
           {cart.map((item) => (
             <CartItem item={item} key={item.id} />
