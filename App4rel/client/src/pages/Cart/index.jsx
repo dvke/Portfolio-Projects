@@ -3,6 +3,8 @@ import { CartContext } from "../../context/CartContext";
 import React, { useContext, useEffect, useState } from "react";
 import { BsCartX, BsTruck } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js";
+import { makeRequest } from "../../makeRequest";
 
 const Cart = () => {
   // const [cartList, setCartList] = useState([]);
@@ -14,10 +16,24 @@ const Cart = () => {
     total,
   } = useContext(CartContext);
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
+  const stripePromise = loadStripe(
+    "pk_test_51OHQ9UDB4caJs4xBKyco3nkoIMVhLe4LwTjH95eZRoKu6XNw92yJUpA3lAs1USDVFknlkS2k4B8dSJqDQPLehCsM00u9L0j8Kl"
+  );
+  const handlePayment = async () => {
+    try {
+      const stripe = await stripePromise;
+      const res = await makeRequest.post("/orders", {
+        cart,
+      });
 
+      await stripe.redirectToCheckout({
+        sessionId: res.data.stripeSession.id,
+      });
+    } catch (error) {
+      console.error(error.response.data);
+      console.log(cart);
+    }
+  };
   return (
     <>
       {total === 0 ? (
@@ -45,7 +61,7 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {cart.map((item) => (
+              {cart?.map((item) => (
                 <tr key={item.id} className="border-b">
                   <td className="text-center">
                     <div className="flex items-center gap-3">
@@ -100,12 +116,12 @@ const Cart = () => {
               <div>${total}</div>
             </div>
             {/* checkout */}
-            <Link
-              to={"/"}
+            <button
+              onClick={handlePayment}
               className="w-full bg-black text-white flex p-4 justify-center items-center"
             >
               Proceed to Checkout
-            </Link>
+            </button>
             {/* continue shopping */}
             <Link
               to={"/"}
