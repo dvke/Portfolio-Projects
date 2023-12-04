@@ -80,12 +80,6 @@ const Sidebar = () => {
               >
                 View Cart
               </Link>
-              <Link
-                to={"/"}
-                className="w-full bg-black text-white flex p-4 justify-center items-center"
-              >
-                Checkout
-              </Link>
             </div>
           </>
         )}

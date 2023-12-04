@@ -13,6 +13,7 @@ const Cart = () => {
     removeFromCart,
     increaseAmount,
     decreaseAmount,
+    clearCart,
     total,
   } = useContext(CartContext);
 
@@ -29,9 +30,13 @@ const Cart = () => {
       await stripe.redirectToCheckout({
         sessionId: res.data.stripeSession.id,
       });
+
+      if (res.data.success) {
+        console.log("Payment successful");
+        clearCart();
+      }
     } catch (error) {
       console.error(error.response.data);
-      console.log(cart);
     }
   };
   return (

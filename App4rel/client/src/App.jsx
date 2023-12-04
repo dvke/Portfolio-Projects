@@ -8,22 +8,29 @@ import Footer from "./components/Footer";
 import ErrorPage from "./pages/ErrorPage";
 import Sidebar from "./components/Sidebar";
 import Cart from "./pages/Cart";
+import Order from "./pages/Order";
 
-const Layout = () => {
-  return (
-    <div className="app min-h-[100vh] flex flex-col">
-      <Navbar />
-      <Sidebar />
-      <Outlet />
-      <Footer />
-    </div>
-  );
-};
+// Import necessary components and modules
+
+const DefaultLayout = () => (
+  <div className="app min-h-[100vh] flex flex-col">
+    <Navbar />
+    <Sidebar />
+    <Outlet />
+    <Footer />
+  </div>
+);
+
+const OrderPageLayout = () => (
+  <div className="app min-h-[100vh] flex flex-col">
+    <Outlet />
+  </div>
+);
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <DefaultLayout />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -41,6 +48,15 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+    ],
+  },
+  {
+    element: <OrderPageLayout />,
+    children: [
+      {
+        path: "/order",
+        element: <Order />,
       },
     ],
   },
