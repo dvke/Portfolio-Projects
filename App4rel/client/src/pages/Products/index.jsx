@@ -10,7 +10,7 @@ const Products = () => {
   const [selectedSubCategories, setSelectedSubCategories] = useState([]);
 
   const { data, loading, error } = useFetch(
-    `/sub-categories?/[filters][categories][id][$eq]=${categoryId}`
+    `/sub-categories?[filters][categories][id][$eq]=${categoryId}`
   );
 
   // scroll to top
@@ -31,8 +31,8 @@ const Products = () => {
 
   // console log for test
   useEffect(() => {
-    console.log(selectedSubCategories);
-  }, [selectedSubCategories]);
+    console.log(data);
+  }, [data]);
 
   return (
     <div className="mt-[97px]">
@@ -41,7 +41,13 @@ const Products = () => {
         free shipping between october 23rd and december 31st
       </div>
       <div className="uppercase py-7 px-10 sticky z-10 top-20 bg-white/90 text-center font-bold text-xl border-b-2">
-        {categoryId === 1 ? "Women" : categoryId === 2 ? "Men" : "Products"}
+        {categoryId === 1
+          ? "Women"
+          : categoryId === 2
+          ? "Men"
+          : categoryId === 3
+          ? "Accessories"
+          : "Products"}
       </div>
       <div className="md:flex">
         {/* left */}

@@ -4,6 +4,7 @@ import {
   BiLogoInstagramAlt,
   BiLogoSnapchat,
 } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -33,9 +34,15 @@ const Footer = () => {
         <div>
           <h3 className="text-center font-bold uppercase">Categories</h3>
           <ul className="text-sm flex  sm:flex-col gap-3">
-            <li className="hover:text-blue-400">Women</li>
-            <li className="hover:text-blue-400">Men</li>
-            <li className="hover:text-blue-400">Accessories</li>
+            <Link to="/products/1">
+              <li className="hover:text-blue-400">Women</li>
+            </Link>
+            <Link to="/products/2">
+              <li className="hover:text-blue-400">Men</li>
+            </Link>
+            <Link to="/products/3 ">
+              <li className="hover:text-blue-400">Accessories</li>
+            </Link>
             <li className="hover:text-blue-400">New Arrivals</li>
           </ul>
         </div>

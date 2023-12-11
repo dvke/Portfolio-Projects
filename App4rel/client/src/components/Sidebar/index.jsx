@@ -11,10 +11,12 @@ import { SidebarContext } from "../../context/SidebarContext";
 import { CartContext } from "../../context/CartContext";
 import { BiTrash } from "react-icons/bi";
 import { BsCartX } from "react-icons/bs";
+import useStripePayment from "../../hooks/useStripePayment";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
   const { cart, total, clearCart, itemAmount } = useContext(CartContext);
+  const { handlePayment, paymentError } = useStripePayment();
 
   return (
     <>
@@ -80,6 +82,12 @@ const Sidebar = () => {
               >
                 View Cart
               </Link>
+              <button
+                className="w-full bg-black text-white flex p-4 justify-center items-center"
+                onClick={() => handlePayment(cart, clearCart)}
+              >
+                Check Out
+              </button>
             </div>
           </>
         )}

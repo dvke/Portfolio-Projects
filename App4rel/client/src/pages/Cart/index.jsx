@@ -5,9 +5,11 @@ import { BsCartX, BsTruck } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { makeRequest } from "../../makeRequest";
+import useStripePayment from "../../hooks/useStripePayment";
 
 const Cart = () => {
   // const [cartList, setCartList] = useState([]);
+  const { handlePayment, paymentError } = useStripePayment();
   const {
     cart,
     removeFromCart,
@@ -17,28 +19,28 @@ const Cart = () => {
     total,
   } = useContext(CartContext);
 
-  const stripePromise = loadStripe(
-    "pk_test_51OHQ9UDB4caJs4xBKyco3nkoIMVhLe4LwTjH95eZRoKu6XNw92yJUpA3lAs1USDVFknlkS2k4B8dSJqDQPLehCsM00u9L0j8Kl"
-  );
-  const handlePayment = async () => {
-    try {
-      const stripe = await stripePromise;
-      const res = await makeRequest.post("/orders", {
-        cart,
-      });
+  // const stripePromise = loadStripe(
+  //   "pk_test_51OHQ9UDB4caJs4xBKyco3nkoIMVhLe4LwTjH95eZRoKu6XNw92yJUpA3lAs1USDVFknlkS2k4B8dSJqDQPLehCsM00u9L0j8Kl"
+  // );
+  // const handlePayment = async () => {
+  //   try {
+  //     const stripe = await stripePromise;
+  //     const res = await makeRequest.post("/orders", {
+  //       cart,
+  //     });
 
-      await stripe.redirectToCheckout({
-        sessionId: res.data.stripeSession.id,
-      });
+  //     await stripe.redirectToCheckout({
+  //       sessionId: res.data.stripeSession.id,
+  //     });
 
-      if (res.data.success) {
-        console.log("Payment successful");
-        clearCart();
-      }
-    } catch (error) {
-      console.error(error.response.data);
-    }
-  };
+  //     if (res.data.success) {
+  //       console.log("Payment successful");
+  //       clearCart();
+  //     }
+  //   } catch (error) {
+  //     console.error(error.response.data);
+  //   }
+  // };
   return (
     <>
       {total === 0 ? (
@@ -122,7 +124,7 @@ const Cart = () => {
             </div>
             {/* checkout */}
             <button
-              onClick={handlePayment}
+              onClick={() => handlePayment(cart, clearCart)}
               className="w-full bg-black text-white flex p-4 justify-center items-center"
             >
               Proceed to Checkout

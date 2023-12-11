@@ -40,7 +40,7 @@ const Navbar = () => {
             <Link to="/products/1" className="nav uppercase">
               WOMEN
             </Link>
-            <Link to="/" className="nav uppercase">
+            <Link to="/products/3" className="nav uppercase">
               ACCESSORIES
             </Link>
           </div>
@@ -94,7 +94,7 @@ const Navbar = () => {
             <Link to="/products/1" className="nav uppercase">
               WOMEN
             </Link>
-            <Link to="/" className="nav uppercase">
+            <Link to="/products/3" className="nav uppercase">
               ACCESSORIES
             </Link>
           </div>

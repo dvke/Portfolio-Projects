@@ -69,7 +69,7 @@ const Card = ({ product }) => {
             <AiOutlinePlus />
           </i>
         </button>
-        <Link to={"/"}>
+        <Link to={`/product/${product.id}`}>
           <i className="w-12 h-12 flex items-center justify-center bg-white/80 drop-shadow-3xl">
             <AiFillEye />
           </i>
