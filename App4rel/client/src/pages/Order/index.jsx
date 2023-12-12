@@ -1,8 +1,10 @@
-import React from "react";
+import { CartContext } from "../../context/CartContext";
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Order = () => {
   const { search } = useLocation();
+  const { clearCart } = useContext(CartContext);
   const queryParams = new URLSearchParams(search);
   const successParam = queryParams.get("success");
 
@@ -17,6 +19,7 @@ const Order = () => {
       <Link
         to={"/"}
         className=" bg-[#dddddd] text-black flex p-4 justify-center items-center"
+        onClick={clearCart}
       >
         Continue shopping
       </Link>

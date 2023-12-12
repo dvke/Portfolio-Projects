@@ -124,7 +124,7 @@ const Cart = () => {
             </div>
             {/* checkout */}
             <button
-              onClick={() => handlePayment(cart, clearCart)}
+              onClick={() => handlePayment(cart)}
               className="w-full bg-black text-white flex p-4 justify-center items-center"
             >
               Proceed to Checkout

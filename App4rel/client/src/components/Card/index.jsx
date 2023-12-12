@@ -53,7 +53,9 @@ const Card = ({ product }) => {
           /> */}
         </div>
         {/* title */}
-        <h2 className="mt-5">{product.attributes.title}</h2>
+        <h2 className="mt-5 uppercase text-gray-600">
+          {product.attributes.title}
+        </h2>
         {/* price */}
         <div className="flex items-center gap-5">
           <h3>${product.attributes.price}</h3>

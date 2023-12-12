@@ -99,16 +99,16 @@ const Navbar = () => {
             </Link>
           </div>
           {/* icons & search */}
-          {/* search */}
           <div className="justify-self-end relative gap-5 flex items-center">
-            <input
+            {/* search */}
+            {/* <input
               type="text"
               placeholder="Search for a Product"
               className="bg-[#f8f8f8] px-8 py-2 peer rounded-md xl:block hidden"
             />
             <i className="xl:absolute left-2 peer-focus:text-black xl:text-gray-400 text-xl">
               <IoIosSearch />
-            </i>
+            </i> */}
             {/* icons */}
             <div className="flex ml-0 gap-4 text-gray-500  text-[1.5rem]">
               <i className="cursor-pointer hover:text-black duration-200">

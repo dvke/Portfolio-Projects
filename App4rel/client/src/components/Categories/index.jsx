@@ -47,14 +47,14 @@ const Categories = () => {
         </Link>
         {/* accessories */}
         <Link
-          to="/"
+          to="/products/3"
           className="relative flex items-center justify-center overflow-hidden"
         >
           <h1 className="text-4xl text-white absolute z-10">ACCESSORIES</h1>
 
           <div className="w-full h-full bg-black/30 absolute duration-150"></div>
           <img
-            className="object-cover w-full h-full grayscale cursor-not-allowed"
+            className="object-cover w-full h-full"
             src="https://img.freepik.com/free-photo/spring-wardrobe-switch-still-life_23-2150176694.jpg?size=626&ext=jpg&ga=GA1.1.1203463017.1697382872&semt=sph"
             alt=""
           />

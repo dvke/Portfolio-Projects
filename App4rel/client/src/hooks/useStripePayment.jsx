@@ -10,7 +10,7 @@ const useStripePayment = () => {
   );
   const [paymentError, setPaymentError] = useState(null);
 
-  const handlePayment = async (cart, clearCart) => {
+  const handlePayment = async (cart) => {
     try {
       const stripe = await stripePromise;
       const res = await makeRequest.post("/orders", {
@@ -23,7 +23,6 @@ const useStripePayment = () => {
 
       if (res.data.success) {
         console.log("Payment successful");
-        clearCart();
       }
     } catch (error) {
       console.error(error.response.data);

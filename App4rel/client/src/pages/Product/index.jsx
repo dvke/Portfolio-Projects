@@ -63,15 +63,17 @@ const Product = () => {
                 onClick={() => slideToImage(0)}
                 alt="image1"
               />
-              <img
-                className="w-[80px] h-[80px] object-cover cursor-pointer hover:scale-105 duration-200"
-                src={images[1]}
-                onClick={() => slideToImage(1)}
-                alt="image2"
-              />
+              {images[1] && (
+                <img
+                  className="w-[80px] h-[80px] object-cover cursor-pointer hover:scale-105 duration-200"
+                  src={images[1]}
+                  onClick={() => slideToImage(1)}
+                  alt="image2"
+                />
+              )}
             </div>
             {/* main image */}
-            <div className="md:w-[40vw] w-full h-[500px]">
+            <div className="md:w-[40vw] w-full h-[600px]">
               <Swiper
                 ref={sliderRef}
                 className="relative group w-full h-full"
@@ -111,7 +113,9 @@ const Product = () => {
           {/* right */}
           <div className="flex gap-4 flex-col">
             {/* product name */}
-            <div className="text-3xl font-bold">{data?.attributes?.title}</div>
+            <div className="text-3xl font-bold uppercase">
+              {data?.attributes?.title}
+            </div>
             {/* price */}
             <div className="font-bold text-black/60 text-2xl">
               ${data?.attributes?.price}

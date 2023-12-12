@@ -1,4 +1,5 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { SidebarContext } from "../context/SidebarContext";
 
 export const CartContext = createContext(null);
 
@@ -9,6 +10,8 @@ const CartProvider = ({ children }) => {
   const [itemAmount, setItemAmount] = useState(0);
   // total price state
   const [total, setTotal] = useState(0);
+  // sidebar context
+  const { isOpen, setIsOpen, handleClose } = useContext(SidebarContext);
 
   // retrieve cart from local storage
   useEffect(() => {
@@ -65,6 +68,11 @@ const CartProvider = ({ children }) => {
     } else {
       setCart([...cart, newItem]);
     }
+
+    setIsOpen(true);
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 2500);
   };
 
   // remove from cart

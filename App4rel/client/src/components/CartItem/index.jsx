@@ -32,7 +32,7 @@ const CartItem = ({ item }) => {
           {/* title & trash icon */}
           <div className="flex text-xl justify-between mb-2">
             <Link
-              to={`prodcut/${item.id}`}
+              to={`product/${item.id}`}
               className="uppercase text-sm font-medium hover:underline"
             >
               {item?.attributes?.title}

@@ -9,17 +9,17 @@ const FeaturedProducts = ({ type }) => {
   );
 
   return (
-    <section className="my-20 px-4 ">
+    <section className="my-20 px-4">
       {/* header */}
       <div className="uppercase font-bold text-2xl px-10 mb-10">
         {type} products
       </div>
       {/* Cards */}
-      <div className="flex overflow-x-hidden scroll-smooth hover:overflow-x-scroll justify-center items-center  gap-5">
+      <div className="flex overflow-x-auto scrollbar-hide  items-center gap-3 sm:gap-5">
         {error ? (
-          "Something went wrong"
+          <div className="text-red-500">Something went wrong</div>
         ) : loading ? (
-          <div className="absolute w-10 m-auto">
+          <div className="w-10 m-auto">
             <Loader />
           </div>
         ) : (

@@ -29,7 +29,7 @@ const Sidebar = () => {
       <div
         className={`${
           isOpen ? "right-0" : "-right-full"
-        }  bg-white h-full w-full fixed z-50 top-0 shadow-2xl md:w-[35vw] xl:max-w-[30vw] transition-all duration-300 px-4 lg:px-[35px]`}
+        }  bg-white h-full w-full fixed z-50 top-0 shadow-2xl md:w-[30vw] xl:max-w-[27vw] transition-all duration-300 px-4 lg:px-[35px]`}
       >
         <div className="flex items-center justify-between py-6 border-b">
           <div className="uppercase font-semibold">
@@ -84,7 +84,7 @@ const Sidebar = () => {
               </Link>
               <button
                 className="w-full bg-black text-white flex p-4 justify-center items-center"
-                onClick={() => handlePayment(cart, clearCart)}
+                onClick={() => handlePayment(cart)}
               >
                 Check Out
               </button>
