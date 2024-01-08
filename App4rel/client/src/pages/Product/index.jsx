@@ -26,10 +26,6 @@ const Product = () => {
   const sliderRef = useRef(null);
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
 
-  useEffect(() => {
-    console.log(data.attributes);
-  }, [data]);
-
   const navBtnStyle =
     "absolute top-[45%] group-hover:block hidden  bg-white/50 text-white hover:text-gray-500 duration-150 cursor-pointer z-10 text-[3rem] ";
 
@@ -39,6 +35,10 @@ const Product = () => {
     import.meta.env.VITE_UPLOAD_URL +
       data?.attributes?.img2?.data?.attributes?.url,
   ];
+
+  useEffect(() => {
+    console.log(images[0]);
+  }, [data]);
 
   const slideToImage = useCallback((index) => {
     if (!sliderRef.current) return;
@@ -63,14 +63,17 @@ const Product = () => {
                 onClick={() => slideToImage(0)}
                 alt="image1"
               />
-              {images[1] && (
-                <img
-                  className="w-[80px] h-[80px] object-cover cursor-pointer hover:scale-105 duration-200"
-                  src={images[1]}
-                  onClick={() => slideToImage(1)}
-                  alt="image2"
-                />
-              )}
+
+              <img
+                className="w-[80px] h-[80px] object-cover cursor-pointer hover:scale-105 duration-200"
+                src={
+                  images[1] === "http://localhost:1337undefined"
+                    ? images[0]
+                    : images[1]
+                }
+                onClick={() => slideToImage(1)}
+                alt="image2"
+              />
             </div>
             {/* main image */}
             <div className="md:w-[40vw] w-full h-[600px]">

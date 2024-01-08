@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   AiOutlineHeart,
   AiFillHeart,
@@ -12,9 +14,22 @@ import { CartContext } from "../../context/CartContext";
 
 const Card = ({ product }) => {
   const { addToCart } = useContext(CartContext);
+  const notify = (title) => toast(`${title} added to cart`);
 
   return (
     <div className="md:min-w-[280px] min-w-[350px] relative group overflow-hidden">
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       {/* card */}
       <Link to={`/product/${product.id}`}>
         {/* heart icon */}
@@ -66,7 +81,12 @@ const Card = ({ product }) => {
       </Link>
       {/* buttons */}
       <div className="absolute top-0 -right-20 group-hover:right-0 p-2 flex flex-col gap-y-2 opacity-0 group-hover:opacity-100 transition-all duration-200">
-        <button onClick={() => addToCart(product, product.id)}>
+        <button
+          onClick={() => {
+            addToCart(product, product.id);
+            notify(product.attributes.title);
+          }}
+        >
           <i className="w-12 h-12 flex justify-center items-center bg-blue-500 hover:bg-blue-700 duration-200 text-white">
             <AiOutlinePlus />
           </i>
