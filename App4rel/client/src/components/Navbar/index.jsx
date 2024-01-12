@@ -111,12 +111,12 @@ const Navbar = () => {
             </i> */}
             {/* icons */}
             <div className="flex ml-0 gap-4 text-gray-500  text-[1.5rem]">
-              <i className="cursor-pointer hover:text-black duration-200">
+              {/* <i className="cursor-pointer hover:text-black duration-200">
                 <BiUser />
               </i>
               <i className="cursor-pointer hover:text-black duration-200">
                 <IoMdHeartEmpty />
-              </i>
+              </i> */}
               <div className="relative">
                 <i
                   className="cursor-pointer hover:text-black duration-200"

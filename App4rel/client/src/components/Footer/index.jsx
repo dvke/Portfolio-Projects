@@ -59,10 +59,7 @@ const Footer = () => {
         {/* about */}
         <div className="sm:w-1/4 w-1/2">
           <h3 className="text-center font-bold uppercase">About</h3>
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-            repudiandae voluptate dolore voluptatem repellat optio?
-          </p>
+          <p className="text-sm">Fashion on a budget</p>
         </div>
         {/* contact */}
         <div>
