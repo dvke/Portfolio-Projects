@@ -99,7 +99,7 @@ const Navbar = (props: Props) => {
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* left side */}
-            <h1 className="text-lg uppercase font-bold w-[300px] text-header-color font-montserrat">
+            <h1 className="text-2xl uppercase font-bold w-[300px] text-secondary-500 font-montserrat">
               Duke's Gym
             </h1>
             {/* right side */}

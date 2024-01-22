@@ -11,21 +11,21 @@ const benefits: Array<BenefitType> = [
     icon: <HomeModernIcon className="h-6 w-6" />,
     title: "State of the Art Facilities",
     description:
-      "Neque adipiscing amet amet enim. Feugiat dolor enim fermentum in a in lectus pellentesque. Ullamcorper et.",
+      "Elevate your fitness journey with state-of-the-art facilities. Experience excellence in every workout.",
   },
   {
     id: 2,
     icon: <UserGroupIcon className="h-6 w-6" />,
     title: "100's of Diverse Classes",
     description:
-      "Eu ipsum id egestas risus tempus enim semper felis quis. Nec consectetur ac venenatis facilisi est. Eget ac turpis id.",
+      "Duke's Gym offers a diverse range of classes to suit every fitness enthusiast.",
   },
   {
     id: 3,
     icon: <AcademicCapIcon className="h-6 w-6" />,
     title: "Expert and Pro Trainers",
-    description:
-      "Fusce vestibulum aliquam ut cras. Nisl lectus egestas sapien nisl. Lacus at mi sit pellentesque. Congue parturient.",
+    description: `
+Duke's Gym offers a variety of fitness classes for all levels, led by pro trainers. `,
   },
 ];
 

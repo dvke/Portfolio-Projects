@@ -41,9 +41,12 @@ const Home = (props: Props) => {
               </div>
             </div>
             <p className="mt-8">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam
-              doloremque deserunt ipsam suscipit! Magni tempora nesciunt
-              inventore dolorem corporis cum.
+              Welcome to Duke's Gym – Your fitness destination for strength,
+              community, and results! Our modern facility and expert trainers
+              are here to elevate your workouts, offering personalized programs
+              and energizing classes. Join Duke's Gym for a powerful fitness
+              experience that transforms bodies and builds a strong, supportive
+              community. Duke's Gym – Where Fitness Reigns!
             </p>
           </motion.div>
           {/* actions */}
