@@ -4,13 +4,13 @@ import SponsorRedBull from "@/assets/SponsorRedBull.png";
 import SponsorForbes from "@/assets/SponsorForbes.png";
 import SponsorFortune from "@/assets/SponsorFortune.png";
 import ActionButton from "@/shared/ActionButton";
-import SquatGraphic from "@/assets/SquatGraphic.jpg";
+// import SquatGraphic from "@/assets/SquatGraphic.jpg";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 
 type Props = {};
 
-const Home = (props: Props) => {
+const Home = (_props: Props) => {
   const isDesktop = useMediaQuery("(min-width: 1040px)");
 
   return (

@@ -6,7 +6,7 @@ import Class from "./Class";
 
 type Props = {};
 
-const OurClasses = (props: Props) => {
+const OurClasses = (_props: Props) => {
   return (
     <section id="ourclasses" className="w-full py-40 bg-primary-100">
       <motion.div

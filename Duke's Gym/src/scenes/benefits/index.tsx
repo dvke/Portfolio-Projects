@@ -15,7 +15,7 @@ const container = {
 
 type Props = {};
 
-const Benefits = (props: Props) => {
+const Benefits = (_props: Props) => {
   return (
     <section id="benefits" className="mx-auto min-h-full w-5/6 py-20 ">
       <motion.div>

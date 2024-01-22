@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import Logo from "@/assets/Logo.png";
-import { Link, animateScroll as scroll } from "react-scroll";
+// import Logo from "@/assets/Logo.png";
+import { Link } from "react-scroll";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
 
 type Props = {};
 
-const Navbar = (props: Props) => {
+const Navbar = (_props: Props) => {
   const active = "text-secondary-500 underline decoration-4 underline-offset-8";
   const flexBetween = "flex items-center justify-between";
   const [menuToggled, setMenuToggled] = useState<boolean>(false);

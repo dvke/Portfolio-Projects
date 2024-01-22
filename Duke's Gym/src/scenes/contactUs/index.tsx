@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 
 type Props = {};
 
-const ContactUs = (props: Props) => {
+const ContactUs = (_props: Props) => {
   const inputStyles = `w-full mb-5 bg-primary-100 rounded-lg px-5 py-3 placeholder-white`;
   const {
     register,

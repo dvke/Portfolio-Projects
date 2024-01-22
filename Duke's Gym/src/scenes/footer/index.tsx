@@ -1,7 +1,7 @@
-import Logo from "@/assets/Logo.png";
+// import Logo from "@/assets/Logo.png";
 type Props = {};
 
-const Footer = (props: Props) => {
+const Footer = (_props: Props) => {
   return (
     <footer className="bg-primary-100 py-16 ">
       <div className="justify-content mx-auto w-5/6 gap-16 sm:flex">
