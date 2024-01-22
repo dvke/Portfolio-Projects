@@ -13,13 +13,30 @@ const AuthContext = createContext();
 export function AuthContextProvider({ children }) {
   const [user, setUser] = useState({});
 
+  
   function signUp(email, password) {
-    createUserWithEmailAndPassword(auth, email, password);
-    setDoc(doc(db, "users", email), {
-      savedShows: [],
-    });
-  }
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // User has been created successfully
+        const user = userCredential.user;
 
+        // Now, set up the Firestore document for the user
+        const userDocRef = doc(db, "users", email);
+
+        setDoc(userDocRef, {
+          savedMovies: [],
+        })
+          .then(() => {
+            console.log("Document successfully written!");
+          })
+          .catch((error) => {
+            console.error("Error writing document: ", error);
+          });
+      })
+      .catch((error) => {
+        console.error("Error creating user: ", error);
+      });
+  }
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
   }

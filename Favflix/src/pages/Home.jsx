@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Main from "../components/Main";
 import Row from "../components/Row";
 import requests from "../Request";
 import Footer from "../components/Footer";
 import MovieModal from "../components/MovieModal";
+import { useAuth } from "../context/AuthContext";
 
 const Home = () => {
+  const { user } = useAuth();
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   return (
     <>
       <div>

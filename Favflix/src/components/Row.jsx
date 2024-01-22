@@ -5,14 +5,23 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 const Row = ({ title, fetchURL }) => {
   const [movies, setMovies] = useState([]);
-  const [isLoading, setisLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const slider = useRef();
 
   useEffect(() => {
-    axios.get(fetchURL).then((response) => {
-      setMovies(response.data.results);
-      setisLoading(false);
-    });
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(fetchURL);
+        setMovies(response.data.results);
+        setIsLoading(false);
+      } catch (error) {
+        setError("Error fetching data. Please try again later.");
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, [fetchURL]);
 
   const slideRight = () => {
@@ -25,7 +34,7 @@ const Row = ({ title, fetchURL }) => {
 
   return (
     <>
-      <h2 className="text-white font-bold md:text-xl p-4 border-l-4 border-red-600 ml-4">
+      <h2 className="text-white font-bold md:text-xl p-4 border-l-4 border-purple-600 ml-4">
         {title}
       </h2>
       <div className="relative flex items-center group mb-10">
@@ -39,7 +48,9 @@ const Row = ({ title, fetchURL }) => {
           className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide"
         >
           {isLoading ? (
-            <p className="text-white text-sm">loading...</p>
+            <p className="text-white text-sm">Loading...</p>
+          ) : error ? (
+            <p className="text-white text-sm">{error}</p>
           ) : (
             movies.map((movie, id) => <Movie key={id} item={movie} />)
           )}

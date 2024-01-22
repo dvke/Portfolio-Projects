@@ -35,7 +35,7 @@ const SavedMovies = () => {
 
   useEffect(() => {
     onSnapshot(movieRef, (doc) => {
-      setMovies(doc.data()?.savedMovies);
+      setMovies(doc.data()?.savedMovies.reverse());
     });
     setIsLoading(false);
   }, [user?.email]);
@@ -43,7 +43,8 @@ const SavedMovies = () => {
   return (
     <>
       <h2 className="text-gray-400 font-bold md:text-xl p-4">
-        Watchlist <MdLocalMovies size={30} className="inline-block" />
+        {user?.email?.split("@")[0]}'s Watchlist{" "}
+        <MdLocalMovies size={30} className="inline-block" />
       </h2>
       <div className="relative flex items-center group">
         <MdChevronLeft
@@ -56,7 +57,7 @@ const SavedMovies = () => {
           className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide"
         >
           {isLoading ? (
-            <p className="text-white text-sm">loading...</p>
+            <p className="text-white  text-3xl">loading...</p>
           ) : (
             movies.map((movie, id) => (
               <div

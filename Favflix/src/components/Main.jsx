@@ -91,7 +91,7 @@ const Main = () => {
           {/* <a href={watchTrailerLink} target="_blank" rel="noopener noreferrer"> */}
           <button
             onClick={handleShowTrailer}
-            className="border text-white border-gray-300 py-2 px-5 ml-4"
+            className="border border-gray-300 py-2 px-5 ml-4 transition duration-300 ease-in-out hover:bg-white hover:text-black"
           >
             Watch Trailer
           </button>

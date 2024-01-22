@@ -43,8 +43,8 @@ const Navbar = () => {
   return (
     <nav className={navbarClass}>
       <Link to="/">
-        <h1 className="text-red-600 text-[2rem] font-bold cursor-pointer">
-          FAV<span className="text-[1.5rem] ">❤️</span>FLIX
+        <h1 className="text-purple-500 text-[2rem] font-bold cursor-pointer">
+          FAV<span className="text-[1.75rem]">🎬</span>FLIX
         </h1>
       </Link>
 
@@ -60,7 +60,7 @@ const Navbar = () => {
           </Link>
           <button
             onClick={handleLogout}
-            className="bg-red-600 px-6 py-2 rounded cursor-pointer text-white"
+            className="bg-purple-500 px-6 py-2 rounded cursor-pointer text-white"
           >
             Log out
           </button>
@@ -71,7 +71,7 @@ const Navbar = () => {
             <button className="text-white pr-4">Sign In</button>
           </Link>
           <Link to="/signup">
-            <button className="bg-red-600 px-6 py-2 rounded cursor-pointer text-white">
+            <button className="bg-purple-500 px-6 py-2 rounded cursor-pointer text-white">
               Sign Up
             </button>
           </Link>

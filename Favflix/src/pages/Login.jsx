@@ -27,15 +27,19 @@ const Login = () => {
       <div className="relative w-full h-screen">
         <img
           className="hidden sm:block absolute w-full h-full object-cover"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/dc1cf82d-97c9-409f-b7c8-6ac1718946d6/bd6666ad-90f8-453d-ac3d-25092f05db36/NG-en-20230911-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="/"
         />
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-black opacity-70"></div>
         <div className="fixed w-full px-4 py-24 z-50">
           <div className="max-w-[450px] h-[600px] bg-black/75 text-white mx-auto">
             <div className="max-w-[350px] mx-auto py-16">
               <h1 className="text-3xl font-bold">Sign In</h1>
-              {error ? <p className="text-sm text-red-600">{error}</p> : null}
+              {error ? (
+                <p className="text-sm text-purple-600">
+                  Invalid email or password
+                </p>
+              ) : null}
               <form className="w-full flex flex-col py-3">
                 <input
                   onChange={(e) => setEmail(e.target.value)}
@@ -53,7 +57,7 @@ const Login = () => {
                 />
                 <button
                   onClick={handleSubmit}
-                  className="bg-red-600 py-3 my-6 rounded font-bold"
+                  className="bg-purple-600 py-3 my-6 rounded font-bold"
                 >
                   Sign In
                 </button>
