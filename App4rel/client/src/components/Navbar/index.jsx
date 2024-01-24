@@ -125,7 +125,7 @@ const Navbar = () => {
                   <IoCartOutline />
                 </i>
                 <span className="absolute -top-2 -right-1 flex items-center justify-center  rounded-full bg-blue-500 text-xs text-white w-4 h-4">
-                  {cart.length}
+                  {cart ? cart.length : 0}
                 </span>
               </div>
             </div>

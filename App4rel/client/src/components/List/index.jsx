@@ -12,8 +12,10 @@ const List = ({ categoryId, maxPrice, sort, subCategories }) => {
 
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3  gap-2">
-      {loading ? (
-        <div className="absolute w-10 m-auto">
+      {error ? (
+        <div className="text-red-500 h-20">Something went wrong.</div>
+      ) : loading ? (
+        <div className="w-10 m-auto">
           <Loader />
         </div>
       ) : (

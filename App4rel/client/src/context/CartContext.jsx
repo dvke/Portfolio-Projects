@@ -26,10 +26,13 @@ const CartProvider = ({ children }) => {
 
   // update total
   useEffect(() => {
-    const total = cart.reduce((accumulator, currentItem) => {
-      return accumulator + currentItem.attributes.price * currentItem.amount;
-    }, 0);
-    setTotal(total);
+    if (cart) {
+      // Add a null check here
+      const total = cart.reduce((accumulator, currentItem) => {
+        return accumulator + currentItem.attributes.price * currentItem.amount;
+      }, 0);
+      setTotal(total);
+    }
   }, [cart]);
 
   // update item amount
@@ -48,10 +51,9 @@ const CartProvider = ({ children }) => {
       ...product,
       amount: amount || 1,
     };
-    // check if item is already in cart
-    const cartItem = cart.find((item) => {
-      return item.id === id;
-    });
+
+    // Check if cart is not null or undefined before using find
+    const cartItem = cart && cart.find((item) => item.id === id);
 
     if (cartItem) {
       const newCart = [...cart].map((item) => {
@@ -88,13 +90,15 @@ const CartProvider = ({ children }) => {
 
   // increase amount
   const increaseAmount = (id) => {
-    const cartItem = cart.find((item) => item.id === id);
-    addToCart(cartItem, id);
+    const cartItem = cart && cart.find((item) => item.id === id); // Add a null check here
+    if (cartItem) {
+      addToCart(cartItem, id);
+    }
   };
 
   // decrease amount
   const decreaseAmount = (id) => {
-    const cartItem = cart.find((item) => item.id === id);
+    const cartItem = cart && cart.find((item) => item.id === id); // Add a null check here
     if (cartItem) {
       const newCart = cart.map((item) => {
         if (item.id === id) {
@@ -108,7 +112,7 @@ const CartProvider = ({ children }) => {
       });
       setCart(newCart);
     }
-    if (cartItem.amount < 2) {
+    if (cartItem && cartItem.amount < 2) {
       removeFromCart(cartItem.id);
     }
   };

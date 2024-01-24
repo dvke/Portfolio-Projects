@@ -44,19 +44,22 @@ const Sidebar = () => {
           </div>
         </div>
         {/* car items */}
-        {total === 0 && (
+        {/* car items */}
+        {total === 0 && cart && cart.length === 0 && (
           <div className="flex flex-col gap-5 items-center justify-center h-[80%]">
             <BsCartX className="text-8xl text-gray-200" />
             <div className="uppercase">No items in cart</div>
           </div>
         )}
-        <div className="flex flex-col gap-y-2 max-h-[420px] lg:h-[640px] overflow-y-auto overflow-x-hidden">
-          {cart.map((item) => (
-            <CartItem item={item} key={item.id} />
-          ))}
-        </div>
+        {cart && cart.length > 0 && (
+          <div className="flex flex-col gap-y-2 max-h-[420px] lg:h-[640px] overflow-y-auto overflow-x-hidden">
+            {cart.map((item) => (
+              <CartItem item={item} key={item.id} />
+            ))}
+          </div>
+        )}
         {/* condition rendering: total price & clear cart */}
-        {cart.length > 0 && (
+        {cart && cart.length > 0 && (
           <>
             <div className="flex flex-col gap-y-3 py-4 mt-2 border-t">
               <div className="flex w-full justify-between items-center">

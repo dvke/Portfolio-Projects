@@ -30,9 +30,9 @@ const Products = () => {
   }
 
   // console log for test
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   return (
     <div className="mt-[97px]">
