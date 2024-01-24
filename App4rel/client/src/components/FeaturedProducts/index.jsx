@@ -11,7 +11,7 @@ const FeaturedProducts = ({ type }) => {
   return (
     <section className="my-20 px-4">
       {/* header */}
-      <div className="uppercase font-bold text-2xl px-10 mb-10">
+      <div className="uppercase text-gray-500 font-bold text-2xl px-10 mb-10">
         {type} products
       </div>
       {/* Cards */}

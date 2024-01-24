@@ -56,11 +56,7 @@ const Footer = () => {
             <li className="hover:text-blue-400">Cookies</li>
           </ul>
         </div>
-        {/* about */}
-        <div className="sm:w-1/4 w-1/2">
-          <h3 className="text-center font-bold uppercase">About</h3>
-          <p className="text-sm">Fashion on a budget</p>
-        </div>
+
         {/* contact */}
         <div>
           <h3 className="text-center font-bold uppercase">Contact</h3>

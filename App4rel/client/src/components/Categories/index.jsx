@@ -5,7 +5,9 @@ const Categories = () => {
   return (
     <section className="mx-5 mt-[100px]">
       {/* header */}
-      <div className="uppercase font-bold text-2xl px-10 mb-10">categories</div>
+      <div className="uppercase text-gray-500 font-bold text-2xl px-10 mb-10">
+        Lates collections
+      </div>
       <div className=" flex flex-col md:overflow-hidden  md:grid md:grid-rows-2 grid-cols-4 gap-1 w-full md:max-h-[600px] border">
         {/* sale */}
         <Link
