@@ -2,8 +2,9 @@ import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { useMemo, useState } from "react";
 import { Column, Id } from "../types";
 import ColumnContainer from "./ColumnContainer";
-import { DndContext, DragStartEvent } from "@dnd-kit/core";
+import { DndContext, DragOverlay, DragStartEvent } from "@dnd-kit/core";
 import { SortableContext } from "@dnd-kit/sortable";
+import { createPortal } from "react-dom";
 
 const KanbanBoard = () => {
   // State to track columns of type Column[]
@@ -11,6 +12,7 @@ const KanbanBoard = () => {
   const columnsId = useMemo(() => columns.map((column) => column.id), [
     columns,
   ]);
+  const [activeColumn, setactiveColumn] = useState<Column | null>(null);
 
   return (
     <div className="m-auto flex min-h-screen w-full items-center overflow-x-auto overflow-y-hidden px-[40px]">
@@ -29,12 +31,24 @@ const KanbanBoard = () => {
           </div>
           <button
             className="h-[60px] w-[350px] min-w-[350px] cursor-pointer rounded-lg bg-main-bg border border-column-bg p-4 ring-rose-500 hover:ring-1 flex gap-2"
-            onClick={() => createNewColumn()}
+            onClick={createNewColumn}
           >
             <PlusCircleIcon className="size-6" />
             Add Column
           </button>
         </div>
+
+        {createPortal(
+          <DragOverlay>
+            {activeColumn && (
+              <ColumnContainer
+                column={activeColumn}
+                deleteColumn={deleteColumn}
+              />
+            )}
+          </DragOverlay>,
+          document.body
+        )}
       </DndContext>
     </div>
   );
@@ -47,10 +61,10 @@ const KanbanBoard = () => {
     };
 
     setColumns([...columns, newColumn]);
-    console.log(columns);
   }
 
   function deleteColumn(columnId: Id) {
+    console.log(columnId);
     const filteredColumns = columns.filter((column) => column.id !== columnId);
     setColumns(filteredColumns);
   }
@@ -60,7 +74,11 @@ const KanbanBoard = () => {
   }
 
   function onDragStart(e: DragStartEvent) {
-    console.log("Drag start", e);
+    const activeColumn = e.active.data.current;
+    if (activeColumn?.type === "Column") {
+      setactiveColumn(activeColumn.column);
+      return;
+    }
   }
 };
 

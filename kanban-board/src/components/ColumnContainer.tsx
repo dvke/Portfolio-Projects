@@ -15,6 +15,7 @@ const ColumnContainer = ({ column, deleteColumn }: Props) => {
     listeners,
     transform,
     transition,
+    isDragging,
   } = useSortable({
     id: column.id,
     data: {
@@ -24,6 +25,17 @@ const ColumnContainer = ({ column, deleteColumn }: Props) => {
   });
 
   const style = { transition, transform: CSS.Translate.toString(transform) };
+
+  if (isDragging) {
+    return (
+      <div
+        ref={setNodeRef}
+        style={style}
+        className="bg-column-bg w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col opacity-50 border border-rose-500"
+      ></div>
+    );
+  }
+
   return (
     <div
       ref={setNodeRef}
