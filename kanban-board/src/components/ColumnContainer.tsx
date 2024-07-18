@@ -1,5 +1,7 @@
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { Column, Id } from "../types";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 interface Props {
   column: Column;
@@ -7,8 +9,29 @@ interface Props {
 }
 
 const ColumnContainer = ({ column, deleteColumn }: Props) => {
+  const {
+    setNodeRef,
+    attributes,
+    listeners,
+    transform,
+    transition,
+  } = useSortable({
+    id: column.id,
+    data: {
+      type: "Column",
+      column,
+    },
+  });
+
+  const style = { transition, transform: CSS.Translate.toString(transform) };
   return (
-    <div className="bg-column-bg w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col">
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...listeners}
+      {...attributes}
+      className="bg-column-bg w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col"
+    >
       {/* Column title */}
       <div className="flex items-center justify-between bg-main-bg text-md h-[60px] cursor-grab rounded rounded-b-none p-3 border-column-bg border-4">
         <div className="flex gap-2">
