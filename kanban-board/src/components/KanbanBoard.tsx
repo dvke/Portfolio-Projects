@@ -39,6 +39,7 @@ const KanbanBoard = () => {
               {columns.map((column) => (
                 <ColumnContainer
                   key={column.id}
+                  updateColumn={updateColumn}
                   column={column}
                   deleteColumn={deleteColumn}
                 />
@@ -59,6 +60,7 @@ const KanbanBoard = () => {
             {activeColumn && (
               <ColumnContainer
                 column={activeColumn}
+                updateColumn={updateColumn}
                 deleteColumn={deleteColumn}
               />
             )}
@@ -80,10 +82,20 @@ const KanbanBoard = () => {
   }
 
   function deleteColumn(columnId: Id) {
-    console.log(columnId);
     const filteredColumns = columns.filter((column) => column.id !== columnId);
     setColumns(filteredColumns);
   }
+
+  function updateColumn(columnId: Id, title: string) {
+    const newColumns = columns.map((column) => {
+      if (column.id !== columnId) return column;
+      return { ...column, title };
+    });
+
+    setColumns(newColumns);
+    console.log(columns);
+  }
+
   function generateId() {
     // Generate random number between 0 & 10,000
     return Math.floor(Math.random() * 100001);
