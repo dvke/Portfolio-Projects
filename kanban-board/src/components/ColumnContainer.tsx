@@ -1,5 +1,9 @@
-import { TrashIcon } from "@heroicons/react/24/outline";
-import { Column, Id } from "../types";
+import {
+  PlusCircleIcon,
+  PlusIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
+import { Column, Id, Task } from "../types";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useState } from "react";
@@ -8,9 +12,17 @@ interface Props {
   column: Column;
   deleteColumn: (id: Id) => void;
   updateColumn: (id: Id, title: string) => void;
+  createTask: (columnId: Id) => void;
+  tasks: Task[];
 }
 
-const ColumnContainer = ({ column, deleteColumn, updateColumn }: Props) => {
+const ColumnContainer = ({
+  column,
+  deleteColumn,
+  updateColumn,
+  createTask,
+  tasks,
+}: Props) => {
   const [editMode, setEditMode] = useState(false);
 
   const {
@@ -77,9 +89,23 @@ const ColumnContainer = ({ column, deleteColumn, updateColumn }: Props) => {
           <TrashIcon className="stroke-gray-500 size-6  hover:stroke-rose-500 duration-200" />
         </button>
       </div>
-      <div className="flex flex-grow">content</div>
+
+      {/* Column task container */}
+      <div className="flex flex-grow flex-col gap-2 p-2  overflow-x-hidden overflow-y-auto">
+        {tasks.map((task) => (
+          <div key={task.id}>{task.content}</div>
+        ))}
+      </div>
+
       {/* Column footer */}
-      <div>footer</div>
+
+      <button
+        className="flex gap-2 items-center border border-column-bg rounded-md p-4 border-x-column-bg hover:text-rose-500 active:bg-black"
+        onClick={() => createTask(column.id)}
+      >
+        <PlusCircleIcon className="size-6" />
+        Add task
+      </button>
     </div>
   );
 };
