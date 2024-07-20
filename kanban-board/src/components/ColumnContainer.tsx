@@ -1,12 +1,9 @@
-import {
-  PlusCircleIcon,
-  PlusIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
+import { PlusCircleIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { Column, Id, Task } from "../types";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useState } from "react";
+import TaskCard from "./TaskCard";
 
 interface Props {
   column: Column;
@@ -57,13 +54,13 @@ const ColumnContainer = ({
     <div
       ref={setNodeRef}
       style={style}
-      {...listeners}
-      {...attributes}
       className="bg-column-bg w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col"
     >
       {/* Column title */}
       <div
-        className="flex items-center justify-between bg-main-bg text-md h-[60px] cursor-grab rounded rounded-b-none p-3 border-column-bg border-4"
+        {...listeners}
+        {...attributes}
+        className="active:cursor-grabbing flex items-center justify-between bg-main-bg text-md h-[60px] cursor-grab rounded rounded-b-none p-3 border-column-bg border-4"
         onClick={() => setEditMode(true)}
       >
         <div className="flex items-center gap-2">
@@ -73,7 +70,7 @@ const ColumnContainer = ({
           {!editMode && column.title}
           {editMode && (
             <input
-              className="bg-black  outline-none rounded-md caret-rose-500"
+              className="bg-transparent outline-none rounded-md caret-rose-500"
               value={column.title}
               autoFocus
               onChange={(e) => updateColumn(column.id, e.target.value)}
@@ -93,7 +90,7 @@ const ColumnContainer = ({
       {/* Column task container */}
       <div className="flex flex-grow flex-col gap-2 p-2  overflow-x-hidden overflow-y-auto">
         {tasks.map((task) => (
-          <div key={task.id}>{task.content}</div>
+          <TaskCard task={task} />
         ))}
       </div>
 
