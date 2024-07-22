@@ -11,6 +11,8 @@ interface Props {
   updateColumn: (id: Id, title: string) => void;
   createTask: (columnId: Id) => void;
   tasks: Task[];
+  deleteTask: (id: Id) => void;
+  updateTask: (id: Id, content: string) => void;
 }
 
 const ColumnContainer = ({
@@ -19,6 +21,8 @@ const ColumnContainer = ({
   updateColumn,
   createTask,
   tasks,
+  deleteTask,
+  updateTask,
 }: Props) => {
   const [editMode, setEditMode] = useState(false);
 
@@ -45,7 +49,7 @@ const ColumnContainer = ({
       <div
         ref={setNodeRef}
         style={style}
-        className="bg-column-bg w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col opacity-50 border border-rose-500"
+        className="bg-column-bg w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col opacity-50 border border-color-primary"
       ></div>
     );
   }
@@ -65,12 +69,11 @@ const ColumnContainer = ({
       >
         <div className="flex items-center gap-2">
           <div className="flex justify-center items-center bg-column-bg px-2 py-1 text-sm rounded-full">
-            0
+            {!editMode && column.title}
           </div>
-          {!editMode && column.title}
           {editMode && (
             <input
-              className="bg-transparent outline-none rounded-md caret-rose-500"
+              className="bg-transparent outline-none rounded-md caret-color-primary"
               value={column.title}
               autoFocus
               onChange={(e) => updateColumn(column.id, e.target.value)}
@@ -90,14 +93,18 @@ const ColumnContainer = ({
       {/* Column task container */}
       <div className="flex flex-grow flex-col gap-2 p-2  overflow-x-hidden overflow-y-auto">
         {tasks.map((task) => (
-          <TaskCard task={task} />
+          <TaskCard
+            task={task}
+            deleteTask={deleteTask}
+            updateTask={updateTask}
+          />
         ))}
       </div>
 
       {/* Column footer */}
 
       <button
-        className="flex gap-2 items-center border border-column-bg rounded-md p-4 border-x-column-bg hover:text-rose-500 active:bg-black"
+        className="flex gap-2 items-center border border-column-bg rounded-md p-4 border-x-column-bg hover:text-color-primary active:bg-black"
         onClick={() => createTask(column.id)}
       >
         <PlusCircleIcon className="size-6" />

@@ -46,12 +46,14 @@ const KanbanBoard = () => {
                   deleteColumn={handleDeleteColumn}
                   createTask={handleCreateTask}
                   tasks={tasks.filter((task) => task.columnId === column.id)}
+                  deleteTask={handleDeleteTask}
+                  updateTask={handleUpdateTask}
                 />
               ))}
             </SortableContext>
           </div>
           <button
-            className="h-[60px] w-[350px] min-w-[350px] cursor-pointer rounded-lg bg-main-bg border border-column-bg p-4 ring-rose-500 hover:ring-1 flex gap-2"
+            className="h-[60px] w-[350px] min-w-[350px] cursor-pointer rounded-lg bg-main-bg border border-column-bg p-4 ring-color-primary hover:ring-1 flex gap-2"
             onClick={handleCreateNewColumn}
           >
             <PlusCircleIcon className="size-6" />
@@ -70,6 +72,8 @@ const KanbanBoard = () => {
                 tasks={tasks.filter(
                   (task) => task.columnId === activeColumn.id
                 )}
+                deleteTask={handleDeleteTask}
+                updateTask={handleUpdateTask}
               />
             )}
           </DragOverlay>,
@@ -112,6 +116,20 @@ const KanbanBoard = () => {
     };
 
     setTasks([...tasks, newTask]);
+  }
+
+  function handleDeleteTask(id: Id) {
+    const filteredTasks = tasks.filter((task) => task.id !== id);
+    setTasks(filteredTasks);
+  }
+
+  function handleUpdateTask(id: Id, content: string) {
+    const newTasks = tasks.map((task) => {
+      if (task.id !== id) return task;
+      return { ...task, content };
+    });
+
+    setTasks(newTasks);
   }
 
   function generateId() {
