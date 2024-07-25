@@ -25,6 +25,8 @@ const ColumnContainer = ({
   updateTask,
 }: Props) => {
   const [editMode, setEditMode] = useState(false);
+  const [theme, setTheme] = useState("column-bg");
+  const [activeTheme, setActiveTheme] = useState("default");
 
   const {
     setNodeRef,
@@ -60,7 +62,7 @@ const ColumnContainer = ({
     <div
       ref={setNodeRef}
       style={style}
-      className="bg-column-bg w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col"
+      className={`bg-${theme} w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col`}
     >
       {/* Column title */}
       <div
@@ -70,7 +72,7 @@ const ColumnContainer = ({
         onClick={() => setEditMode(true)}
       >
         <div className="flex items-center gap-2">
-          <div className="flex justify-center items-center bg-column-bg px-2 py-1 text-sm rounded-full">
+          <div className="flex justify-center items-center px-2 py-1 text-sm rounded-full">
             {!editMode && column.title}
           </div>
           {editMode && (
@@ -108,13 +110,51 @@ const ColumnContainer = ({
 
       {/* Column footer */}
 
-      <button
-        className="flex gap-2 items-center border border-column-bg rounded-md p-4 border-x-column-bg hover:text-color-primary active:bg-black"
-        onClick={() => createTask(column.id)}
-      >
-        <PlusCircleIcon className="size-6" />
-        Add task
-      </button>
+      <div className="flex px-3 items-center justify-between">
+        <button
+          className="flex gap-2 items-center opacity-50 rounded-md p-4 border-x-column-bg group hover:opacity-100 duration-200"
+          onClick={() => createTask(column.id)}
+        >
+          <PlusCircleIcon className="size-6 group-hover:scale-125 duration-200" />
+          Add task
+        </button>
+
+        {/* theme selectors */}
+        <div className="flex gap-2 justify-between">
+          <button
+            onClick={() => {
+              setActiveTheme("default");
+              setTheme("column-bg");
+            }}
+            className={`w-5 h-5 cursor-pointer rounded-full bg-column-bg ${activeTheme ===
+              "default" && "border-2 border-white"}`}
+          ></button>
+          <button
+            onClick={() => {
+              setActiveTheme("purple");
+              setTheme("purple-900");
+            }}
+            className={`w-5 h-5 cursor-pointer rounded-full bg-purple-900 ${activeTheme ===
+              "purple" && "border-2 border-white"}`}
+          ></button>
+          <button
+            onClick={() => {
+              setActiveTheme("teal");
+              setTheme("teal-900");
+            }}
+            className={`w-5 h-5 cursor-pointer rounded-full bg-teal-900 ${activeTheme ===
+              "teal" && "border-2 border-white"}`}
+          ></button>
+          <button
+            onClick={() => {
+              setActiveTheme("pink");
+              setTheme("pink-700");
+            }}
+            className={`w-5 h-5 cursor-pointer rounded-full bg-pink-700 ${activeTheme ===
+              "pink" && "border-2 border-white"}`}
+          ></button>
+        </div>
+      </div>
     </div>
   );
 };

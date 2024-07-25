@@ -33,6 +33,13 @@ const KanbanBoard = () => {
 
   return (
     <div className="m-auto flex min-h-screen w-full items-center overflow-x-auto overflow-y-hidden px-[40px]">
+      <button
+        className="fixed inset-5 h-[60px] w-[350px] min-w-[350px] cursor-pointer rounded-lg bg-main-bg border border-column-bg p-4 ring-color-primary hover:ring-1 flex gap-2"
+        onClick={handleCreateNewColumn}
+      >
+        <PlusCircleIcon className="size-6" />
+        Add Column
+      </button>
       <DndContext
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
@@ -56,29 +63,27 @@ const KanbanBoard = () => {
               ))}
             </SortableContext>
           </div>
-          <button
-            className="h-[60px] w-[350px] min-w-[350px] cursor-pointer rounded-lg bg-main-bg border border-column-bg p-4 ring-color-primary hover:ring-1 flex gap-2"
-            onClick={handleCreateNewColumn}
-          >
-            <PlusCircleIcon className="size-6" />
-            Add Column
-          </button>
         </div>
 
         {createPortal(
           <DragOverlay>
             {activeColumn && (
-              <ColumnContainer
-                column={activeColumn}
-                updateColumn={handleUpdateColumn}
-                deleteColumn={handleDeleteColumn}
-                createTask={handleCreateTask}
-                tasks={tasks.filter(
-                  (task) => task.columnId === activeColumn.id
-                )}
-                deleteTask={handleDeleteTask}
-                updateTask={handleUpdateTask}
-              />
+              // Unnecessary
+
+              // <ColumnContainer
+              //   column={activeColumn}
+              //   updateColumn={handleUpdateColumn}
+              //   deleteColumn={handleDeleteColumn}
+              //   createTask={handleCreateTask}
+              //   tasks={tasks.filter(
+              //     (task) => task.columnId === activeColumn.id
+              //   )}
+              //   deleteTask={handleDeleteTask}
+              //   updateTask={handleUpdateTask}
+              // />
+              <div className="bg-column-bg w-[350px] h-[500px] max-h-[500px] rounded-md flex items-center justify-center opacity-50 border border-color-primary">
+                {activeColumn.title}
+              </div>
             )}
             {activeTask && (
               <TaskCard
